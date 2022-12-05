@@ -16,12 +16,4 @@ module.exports = merge(common, {
     filename: "[name].[contenthash].js",
     publicPath: "/",
   },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-    ],
-  },
 });
