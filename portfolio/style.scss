@@ -1,0 +1,40 @@
+$col-1: #112b3c;
+$col-2: #205375;
+$col-3: #f66b0e;
+$col-4: #f5e6ca;
+
+@mixin display($column: column, $jus: center, $align: center) {
+  display: flex;
+  flex-direction: $column;
+  justify-content: $jus;
+  align-items: $align;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 1920px;
+  height: auto;
+  padding: 50px;
+  background-color: $col-4;
+}
+
+#root {
+  width: inherit;
+  border: 5px solid $col-2;
+  & > header {
+    width: inherit;
+    height: 170px;
+    border-bottom: 5px solid $col-2;
+    display: flex;
+  }
+  & > main {
+    width: inherit;
+    border: 3px solid $col-2;
+    padding: 50px;
+  }
+}

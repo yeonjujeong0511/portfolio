@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 1920px;
+  height: auto;
+  padding: 50px;
+  background-color: #f5e6ca;
+}
+
+#root {
+  width: inherit;
+  border: 5px solid #205375;
+}
+#root > header {
+  width: inherit;
+  height: 170px;
+  border-bottom: 5px solid #205375;
+  display: flex;
+}
+#root > main {
+  width: inherit;
+  border: 3px solid #205375;
+  padding: 50px;
+}/*# sourceMappingURL=style.css.map */
