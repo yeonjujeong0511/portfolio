@@ -91,7 +91,7 @@ body {
     flex-direction: column;
     & > div:nth-child(1) {
       width: inherit;
-      height: 220px;
+      height: 170px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -106,17 +106,21 @@ body {
       }
     }
     & > div:nth-child(2) {
-      width: 1120px;
-      height: 470px;
+      width: 1000px;
+      height: 430px;
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+      flex-direction: column;
       justify-content: space-between;
       & > div {
-        width: 170px;
+        width: inherit;
         height: 180px;
-        background-color: #205375;
-        flex: auto;
+        display: flex;
+        justify-content: space-between;
+        & > div {
+          width: 165px;
+          height: 170px;
+          background-color: darkcyan;
+        }
       }
     }
   }
