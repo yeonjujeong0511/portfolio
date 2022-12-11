@@ -28,3 +28,31 @@ console.log(sections);
 sections.forEach((item, index) => {
   item.className = sectionClass[index];
 });
+
+const firstPage = document.querySelector(".first-page");
+console.log(firstPage);
+/*
+<div>
+  <div></div>
+  <p></p>
+  <p></p>
+  <p></p>
+</div>
+*/
+function makeTag(parentName, innerhtml) {
+  const parentElem = document.createElement(parentName);
+  parentElem.innerHTML = innerhtml;
+  return parentElem;
+}
+let imgDiv = `
+  <div></div>
+  <p></p>
+  <p></p>
+  <p></p>
+  `;
+
+//  append.appendChild(parentElem);
+const box = makeTag("div", imgDiv);
+
+
+firstPage.append(box);
