@@ -54,5 +54,6 @@ let imgDiv = `
 //  append.appendChild(parentElem);
 const box = makeTag("div", imgDiv);
 
-
 firstPage.append(box);
+
+console.log("git 설정 변경 확인");
