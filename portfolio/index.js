@@ -36,6 +36,7 @@ const imgDiv = `
   <p></p>
   <p></p>
   `;
+
 const imgBox = makeTag("div", imgDiv);
 
 // ! 공통된 title box 생성 ! //
@@ -58,10 +59,21 @@ const secondSectionAricle = documentElem.section[1].children[0];
 
 console.dir(secondSectionAricle);
 secondSectionAricle.append(titleBox);
-const div = document.createElement("div");
-secondSectionAricle.appendChild(div);
+const createDiv = document.createElement("div");
+secondSectionAricle.appendChild(createDiv);
 
 for (let i = 0; i < 8; i++) {
   const div = document.createElement("div");
   secondSectionAricle.children[1].appendChild(div);
+}
+
+// * 세번째 section 구성* //
+const thirdSectionArticle = documentElem.section[2].children[0];
+console.log(thirdSectionArticle);
+
+thirdSectionArticle.append(titleBox);
+const div = document.createElement("div");
+thirdSectionArticle.appendChild(div);
+for (let i = 0; i < 3; i++) {
+  thirdSectionArticle.children[1].appendChild(makeTag("div", imgDiv));
 }
