@@ -1,60 +1,12 @@
-const root = document.getElementById("root");
+const documentElem = {
+  header: document.getElementById("header"),
+};
 
-console.dir(root);
+const headerName = ["ABOUT ME", "SKILS", "PROJECTS", "CONTACT"];
 
-function mainTag(tagName) {
-  return `<${tagName}></${tagName}>`;
+// header 생성
+for (let i = 0; i < headerName.length; i++) {
+  const pTag = document.createElement("p");
+  pTag.innerHTML = headerName[i];
+  documentElem.header.append(pTag);
 }
-
-root.innerHTML = `
-${mainTag("header")}
-${mainTag("main")}
-`;
-const header = document.querySelector("header");
-const main = document.querySelector("main");
-
-console.dir(main);
-
-for (let i = 0; i < 4; i++) {
-  const section = document.createElement("section");
-  main.append(section);
-}
-
-const sectionClass = ["first-page", "second-page", "third-page", "fourth-page"];
-
-const sections = document.querySelectorAll("section");
-console.log(sections);
-
-sections.forEach((item, index) => {
-  item.className = sectionClass[index];
-});
-
-const firstPage = document.querySelector(".first-page");
-console.log(firstPage);
-/*
-<div>
-  <div></div>
-  <p></p>
-  <p></p>
-  <p></p>
-</div>
-*/
-function makeTag(parentName, innerhtml) {
-  const parentElem = document.createElement(parentName);
-  parentElem.innerHTML = innerhtml;
-  return parentElem;
-}
-let imgDiv = `
-  <div></div>
-  <p></p>
-  <p></p>
-  <p></p>
-  `;
-
-//  append.appendChild(parentElem);
-const box = makeTag("div", imgDiv);
-
-firstPage.append(box);
-
-console.log("git 설정 변경 확인");
-console.log("git 설정 확인2");
