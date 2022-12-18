@@ -3,11 +3,16 @@ $col-2: #205375;
 $col-3: #f66b0e;
 $col-4: #f5e6ca;
 
-@mixin display($column: column, $jus: center, $align: center) {
+@mixin display($column, $jus, $align) {
   display: flex;
   flex-direction: $column;
   justify-content: $jus;
   align-items: $align;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
 }
 
 * {
@@ -17,8 +22,7 @@ $col-4: #f5e6ca;
 }
 
 body {
-  width: 1920px;
-  height: auto;
+  @include size(1920px, auto);
   padding: 50px;
   background-color: $col-4;
 }
@@ -28,18 +32,15 @@ body {
 }
 
 #header {
-  width: inherit;
-  height: 170px;
+  @include size(inherit, 170px);
+  @include display(row, space-between, center);
   border: 5px solid $col-2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
   & > p:nth-child(1) {
-    width: 50%;
-    height: 170px;
+    @include size(50%, 170px);
     font-size: 110px;
     text-align: center;
-    border-right: 5px solid #205375;
+    border-right: 5px solid $col-2;
   }
   & p {
     font-size: 36px;
@@ -49,12 +50,132 @@ body {
   }
 }
 
-.page {
-  padding: 50px;
+.article-box {
+  @include size(100%, 760px);
+  border: 3px solid $col-2;
 }
 
-.article-box {
-  width: 100%;
-  height: 760px;
-  border: 3px solid $col-2;
+#first-page {
+  & > article {
+    display: flex;
+    justify-content: center;
+    & > div:nth-child(1) {
+      width: 50%;
+      @include display(column, center, center);
+      & > div {
+        width: 600px;
+        height: 350px;
+        background-color: beige;
+      }
+      & > p {
+        width: 600px;
+        height: 60px;
+        background-color: beige;
+        margin-top: 20px;
+      }
+    }
+    & > div:nth-child(2) {
+      width: 50%;
+      @include display(row, center, center);
+      & > div {
+        @include size(600px, 540px);
+        width: 600px;
+
+        background-color: darkgray;
+      }
+    }
+  }
+}
+.title-box {
+  height: 170px;
+  @include display(column, center, center);
+  & > p {
+    font-size: 42px;
+  }
+  & > div {
+    @include size(350px, 20px);
+    background-color: #06113c50;
+  }
+}
+
+#second-page {
+  & > article {
+    @include display(column, center, center);
+    & > div:nth-child(1) {
+      @include display(column, center, center);
+    }
+    & > div:nth-child(2) {
+      @include size(900px, 400px);
+      @include display(row, space-between, baseline);
+      flex-wrap: wrap;
+      & > div {
+        @include size(165px, 170px);
+        background-color: $col-1;
+        margin: 20px;
+      }
+    }
+  }
+}
+
+#third-page {
+  & > article {
+    //article
+    @include display(row, flex-end, center);
+    & > div:nth-child(1) {
+      //article 왼쪽
+      @include size(70%, 100%);
+      background-color: beige;
+      @include display(column, space-between, center);
+      & > div:nth-child(2) {
+        display: flex;
+        width: 1100px;
+        height: 520px; //img box 묶음
+        justify-content: space-between;
+        & > div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          width: 30%;
+          height: 420px;
+          div {
+            width: 300px;
+            height: 200px;
+            background-color: $col-2;
+            margin-bottom: 20px;
+          }
+          p {
+            width: 300px;
+            height: 50px;
+            background-color: $col-2;
+          }
+        }
+      }
+    }
+
+    & > div:nth-child(2) {
+      //article 오른쪽
+      @include size(30%, 100%);
+      @include display(column, space-between, center);
+      & > div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 30%;
+        height: 420px;
+        div {
+          width: 300px;
+          height: 200px;
+          background-color: $col-2;
+          margin-bottom: 20px;
+        }
+        p {
+          width: 300px;
+          height: 50px;
+          background-color: $col-2;
+        }
+      }
+    }
+  }
 }

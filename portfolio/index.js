@@ -26,8 +26,9 @@ documentElem.sections.forEach((item) => {
   item.firstChild.className = "article-box";
 });
 
-function makeTag(parentName, innerhtml) {
+function makeTag(parentName, parentClassName, innerhtml) {
   const parentElem = document.createElement(parentName);
+  parentElem.className = parentClassName;
   parentElem.innerHTML = innerhtml;
   return parentElem;
 }
@@ -56,13 +57,13 @@ let contactDiv = `
 const firstArticle = documentElem.section1.children[0];
 console.dir(firstArticle);
 
-firstArticle.append(makeTag("div", imgDiv));
-firstArticle.appendChild(makeTag("div", mainTag("div")));
+firstArticle.append(makeTag("div", "img-box", imgDiv));
+firstArticle.appendChild(makeTag("div", "div", mainTag("div")));
 
 // * 두번째 section 구성* //
 const secondAritcle = documentElem.section2.children[0];
 
-secondAritcle.append(makeTag("div", titleDiv));
+secondAritcle.append(makeTag("div", "title-box", titleDiv));
 const div = document.createElement("div");
 secondAritcle.appendChild(div);
 for (let i = 0; i < 8; i++) {
@@ -79,26 +80,38 @@ ${mainTag("div")}
 ${mainTag("div")}
 `;
 
-thirdArticle.children[0].append(makeTag("div", titleDiv));
+thirdArticle.children[0].append(makeTag("div", "title-box", titleDiv));
 
 const createDiv = document.createElement("div");
 thirdArticle.children[0].append(createDiv);
 
 for (let i = 0; i < 3; i++) {
-  thirdArticle.children[0].children[1].appendChild(makeTag("div", imgDiv));
+  thirdArticle.children[0].children[1].appendChild(
+    makeTag("div", "img-box", imgDiv)
+  );
 }
-thirdArticle.children[1].append(makeTag("div", titleDiv));
+thirdArticle.children[1].append(makeTag("div", "title-box", titleDiv));
 
-thirdArticle.children[1].append(makeTag("div", imgDiv));
+thirdArticle.children[1].append(makeTag("div", "img-box", imgDiv));
 
 // * 네번째 section 구성* //
 
 const fourthArticle = documentElem.section4.children[0];
 
-fourthArticle.append(makeTag("div", titleDiv));
+fourthArticle.append(makeTag("div", "title-box", titleDiv));
 
 fourthArticle.append(document.createElement("div"));
 
 for (let i = 0; i < 3; i++) {
-  fourthArticle.children[1].appendChild(makeTag("div", contactDiv));
+  fourthArticle.children[1].appendChild(
+    makeTag("div", "contact-box", contactDiv)
+  );
 }
+const titleBoxName = ["기술", "팀프로젝트", "개인프로젝트", "연락"];
+const titleBoxP = document.querySelectorAll(".title-box p");
+console.log(titleBoxP);
+
+titleBoxP.forEach((element, index) => {
+  console.log(element);
+  element.innerHTML = titleBoxName[index];
+});
