@@ -115,3 +115,4 @@ titleBoxP.forEach((element, index) => {
   console.log(element);
   element.innerHTML = titleBoxName[index];
 });
+console.log("자격 확인");
