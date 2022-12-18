@@ -30,7 +30,7 @@ function makeTag(parentName, innerhtml) {
   parentElem.innerHTML = innerhtml;
   return parentElem;
 }
-let imgDiv = `
+const imgDiv = `
   <div></div>
   <p></p>
   <p></p>
@@ -38,11 +38,30 @@ let imgDiv = `
   `;
 const imgBox = makeTag("div", imgDiv);
 
+// ! 공통된 title box 생성 ! //
+const titleDiv = `
+<p></p>
+<div></div>
+`;
+const titleBox = makeTag("div", titleDiv);
+
 // * 첫번째 section 구성* //
 const firstSectionAricle = documentElem.section[0].children[0];
 
 console.dir(firstSectionAricle);
 
 firstSectionAricle.append(imgBox);
-const div = document.createElement("div");
 firstSectionAricle.appendChild(makeTag("div", mainTag("div")));
+
+// * 두번째 section 구성* //
+const secondSectionAricle = documentElem.section[1].children[0];
+
+console.dir(secondSectionAricle);
+secondSectionAricle.append(titleBox);
+const div = document.createElement("div");
+secondSectionAricle.appendChild(div);
+
+for (let i = 0; i < 8; i++) {
+  const div = document.createElement("div");
+  secondSectionAricle.children[1].appendChild(div);
+}
