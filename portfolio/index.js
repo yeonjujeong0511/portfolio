@@ -1,8 +1,12 @@
 const documentElem = {
   header: document.getElementById("header"),
-  section: document.querySelectorAll("section"),
+  sections: document.querySelectorAll("section"),
+  section1: document.getElementById("first-page"),
+  section2: document.getElementById("second-page"),
+  section3: document.getElementById("third-page"),
+  section4: document.getElementById("fourth-page"),
 };
-
+console.log(documentElem.section1);
 function mainTag(tagName) {
   return `<${tagName}></${tagName}>`;
 }
@@ -16,80 +20,85 @@ for (let i = 0; i < headerName.length; i++) {
   documentElem.header.append(pTag);
 }
 
-console.log(documentElem.section);
-
 // section 안에 각각 aricle 생성
-documentElem.section.forEach((item) => {
+documentElem.sections.forEach((item) => {
   item.innerHTML = mainTag("article");
-  item.firstChild.className = "ariticle-box";
+  item.firstChild.className = "article-box";
 });
 
-// ! 공통된 img box 생성 ! //
 function makeTag(parentName, innerhtml) {
   const parentElem = document.createElement(parentName);
   parentElem.innerHTML = innerhtml;
   return parentElem;
 }
-const imgDiv = `
+
+// ! 공통된 img div 생성 ! //
+let imgDiv = `
   <div></div>
   <p></p>
   <p></p>
   <p></p>
   `;
 
-const imgBox = makeTag("div", imgDiv);
-
-// ! 공통된 title box 생성 ! //
-const titleDiv = `
+// ! 공통된 title div 생성 ! //
+let titleDiv = `
 <p></p>
 <div></div>
 `;
-const titleBox = makeTag("div", titleDiv);
 
-// ! 공통된 contact box 생성 ! //
-const contactDiv = `
+// ! 공통된 contact div 생성 ! //
+let contactDiv = `
 <img />
 <p></p>
 `;
-const contactBox = makeTag("div", contactDiv);
 
 // * 첫번째 section 구성* //
-const firstSectionAricle = documentElem.section[0].children[0];
+const firstArticle = documentElem.section1.children[0];
+console.dir(firstArticle);
 
-console.dir(firstSectionAricle);
-
-firstSectionAricle.append(imgBox);
-firstSectionAricle.appendChild(makeTag("div", mainTag("div")));
+firstArticle.append(makeTag("div", imgDiv));
+firstArticle.appendChild(makeTag("div", mainTag("div")));
 
 // * 두번째 section 구성* //
-const secondSectionAricle = documentElem.section[1].children[0];
+const secondAritcle = documentElem.section2.children[0];
 
-console.dir(secondSectionAricle);
-secondSectionAricle.append(titleBox);
-const createDiv = document.createElement("div");
-secondSectionAricle.appendChild(createDiv);
-
+secondAritcle.append(makeTag("div", titleDiv));
+const div = document.createElement("div");
+secondAritcle.appendChild(div);
 for (let i = 0; i < 8; i++) {
   const div = document.createElement("div");
-  secondSectionAricle.children[1].appendChild(div);
+  secondAritcle.children[1].appendChild(div);
 }
 
 // * 세번째 section 구성* //
-const thirdSectionArticle = documentElem.section[2].children[0];
-console.log(thirdSectionArticle);
 
-thirdSectionArticle.append(titleBox);
-const div = document.createElement("div");
-thirdSectionArticle.appendChild(div);
+const thirdArticle = documentElem.section3.children[0];
+
+thirdArticle.innerHTML = `
+${mainTag("div")}
+${mainTag("div")}
+`;
+
+thirdArticle.children[0].append(makeTag("div", titleDiv));
+
+const createDiv = document.createElement("div");
+thirdArticle.children[0].append(createDiv);
+
 for (let i = 0; i < 3; i++) {
-  thirdSectionArticle.children[1].appendChild(makeTag("div", imgDiv));
+  thirdArticle.children[0].children[1].appendChild(makeTag("div", imgDiv));
 }
+thirdArticle.children[1].append(makeTag("div", titleDiv));
+
+thirdArticle.children[1].append(makeTag("div", imgDiv));
 
 // * 네번째 section 구성* //
-const fourthSectionArticle = documentElem.section[3].children[0];
 
-fourthSectionArticle.append(titleBox);
-fourthSectionArticle.appendChild(div);
+const fourthArticle = documentElem.section4.children[0];
+
+fourthArticle.append(makeTag("div", titleDiv));
+
+fourthArticle.append(document.createElement("div"));
+
 for (let i = 0; i < 3; i++) {
-  thirdSectionArticle.children[1].appendChild(makeTag("div", contactBox));
+  fourthArticle.children[1].appendChild(makeTag("div", contactDiv));
 }

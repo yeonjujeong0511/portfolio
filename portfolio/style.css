@@ -12,17 +12,37 @@ body {
 }
 
 #root {
-  width: inherit;
   border: 5px solid #205375;
 }
-#root > header {
+
+#header {
   width: inherit;
   height: 170px;
-  border-bottom: 5px solid #205375;
+  border: 5px solid #205375;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-#root > main {
-  width: inherit;
-  border: 3px solid #205375;
+#header > p:nth-child(1) {
+  width: 50%;
+  height: 170px;
+  font-size: 110px;
+  text-align: center;
+  border-right: 5px solid #205375;
+}
+#header p {
+  font-size: 36px;
+}
+#header > p:nth-child(4) {
+  padding-right: 100px;
+}
+
+.page {
   padding: 50px;
+}
+
+.article-box {
+  width: 100%;
+  height: 760px;
+  border: 3px solid #205375;
 }/*# sourceMappingURL=style.css.map */
