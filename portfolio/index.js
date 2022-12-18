@@ -46,6 +46,13 @@ const titleDiv = `
 `;
 const titleBox = makeTag("div", titleDiv);
 
+// ! 공통된 contact box 생성 ! //
+const contactDiv = `
+<img />
+<p></p>
+`;
+const contactBox = makeTag("div", contactDiv);
+
 // * 첫번째 section 구성* //
 const firstSectionAricle = documentElem.section[0].children[0];
 
@@ -76,4 +83,13 @@ const div = document.createElement("div");
 thirdSectionArticle.appendChild(div);
 for (let i = 0; i < 3; i++) {
   thirdSectionArticle.children[1].appendChild(makeTag("div", imgDiv));
+}
+
+// * 네번째 section 구성* //
+const fourthSectionArticle = documentElem.section[3].children[0];
+
+fourthSectionArticle.append(titleBox);
+fourthSectionArticle.appendChild(div);
+for (let i = 0; i < 3; i++) {
+  thirdSectionArticle.children[1].appendChild(makeTag("div", contactBox));
 }
