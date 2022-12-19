@@ -22,7 +22,7 @@ $col-4: #f5e6ca;
 }
 
 body {
-  @include size(1920px, auto);
+  @include size(100vw, auto);
   padding: 50px;
   background-color: $col-4;
 }
@@ -54,22 +54,58 @@ body {
   @include size(100%, 760px);
   border: 3px solid $col-2;
 }
+.title-box {
+  height: 170px;
+  @include display(column, center, center);
+  & > p {
+    font-size: 42px;
+  }
+  & > div {
+    @include size(350px, 20px);
+    background-color: #06113c50;
+  }
+}
+.img-box {
+  @include display(column, space-between, center);
+  height: 420px;
+  div {
+    @include size(300px, 200px);
+    background-color: $col-2;
+    margin-bottom: 20px;
+  }
+  p {
+    @include size(300px, 50px);
+    background-color: $col-2;
+  }
+}
+
+.contact-box {
+  @include size(900px, 100px);
+  @include display(row, center, center);
+  background-color: #f66b0e;
+
+  & > img {
+    @include size(100px, 100px);
+    background-color: bisque;
+  }
+  & > p {
+    padding-left: 15px;
+    font-size: 20px;
+  }
+}
 
 #first-page {
   & > article {
-    display: flex;
-    justify-content: center;
+    @include display(row, center, center);
     & > div:nth-child(1) {
       width: 50%;
       @include display(column, center, center);
       & > div {
-        width: 600px;
-        height: 350px;
+        @include size(600px, 300px);
         background-color: beige;
       }
       & > p {
-        width: 600px;
-        height: 60px;
+        @include size(600px, 60px);
         background-color: beige;
         margin-top: 20px;
       }
@@ -80,21 +116,9 @@ body {
       & > div {
         @include size(600px, 540px);
         width: 600px;
-
         background-color: darkgray;
       }
     }
-  }
-}
-.title-box {
-  height: 170px;
-  @include display(column, center, center);
-  & > p {
-    font-size: 42px;
-  }
-  & > div {
-    @include size(350px, 20px);
-    background-color: #06113c50;
   }
 }
 
@@ -127,29 +151,9 @@ body {
       background-color: beige;
       @include display(column, space-between, center);
       & > div:nth-child(2) {
+        @include size(1100px, 520px);
         display: flex;
-        width: 1100px;
-        height: 520px; //img box 묶음
         justify-content: space-between;
-        & > div {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          width: 30%;
-          height: 420px;
-          div {
-            width: 300px;
-            height: 200px;
-            background-color: $col-2;
-            margin-bottom: 20px;
-          }
-          p {
-            width: 300px;
-            height: 50px;
-            background-color: $col-2;
-          }
-        }
       }
     }
 
@@ -158,24 +162,18 @@ body {
       @include size(30%, 100%);
       @include display(column, space-between, center);
       & > div:nth-child(2) {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        width: 30%;
-        height: 420px;
-        div {
-          width: 300px;
-          height: 200px;
-          background-color: $col-2;
-          margin-bottom: 20px;
-        }
-        p {
-          width: 300px;
-          height: 50px;
-          background-color: $col-2;
-        }
+        margin-bottom: 100px;
       }
+    }
+  }
+}
+
+#fourth-page {
+  & > article {
+    @include display(column, center, center);
+    & > div:nth-child(2) {
+      @include size(1000px, 400px);
+      @include display(column, space-between, center);
     }
   }
 }
