@@ -81,16 +81,15 @@ body {
 
 .contact-box {
   width: 900px;
-  height: 100px;
+  height: 70px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #f66b0e;
 }
 .contact-box > img {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   background-color: bisque;
 }
 .contact-box > p {
@@ -205,9 +204,9 @@ body {
 }
 #fourth-page > article > div:nth-child(2) {
   width: 1000px;
-  height: 400px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

@@ -80,12 +80,11 @@ body {
 }
 
 .contact-box {
-  @include size(900px, 100px);
+  @include size(900px, 70px);
   @include display(row, center, center);
-  background-color: #f66b0e;
 
   & > img {
-    @include size(100px, 100px);
+    @include size(60px, 60px);
     background-color: bisque;
   }
   & > p {
@@ -172,7 +171,7 @@ body {
   & > article {
     @include display(column, center, center);
     & > div:nth-child(2) {
-      @include size(1000px, 400px);
+      @include size(1000px, 250px);
       @include display(column, space-between, center);
     }
   }

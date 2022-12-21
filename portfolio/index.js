@@ -13,6 +13,21 @@ function mainTag(tagName) {
 
 const headerName = ["ABOUT ME", "SKILS", "PROJECTS", "CONTACT"];
 
+const contactItem = [
+  {
+    content: "yeonjujeong0511@gmail.com",
+    img: "./img/mail.png",
+  },
+  {
+    content: "https://github.com/yeonjujeong0511",
+    img: "./img/git.png",
+  },
+  {
+    content: "http://velog.io/@yeonju0511",
+    img: "./img/velog.png",
+  },
+];
+
 // header 생성
 for (let i = 0; i < headerName.length; i++) {
   const pTag = document.createElement("p");
@@ -114,4 +129,16 @@ console.log(titleBoxP);
 titleBoxP.forEach((element, index) => {
   console.log(element);
   element.innerHTML = titleBoxName[index];
+});
+
+const contactBox_img = document.querySelectorAll(".contact-box img");
+const contactBox_p = document.querySelectorAll(".contact-box p");
+console.log(contactBox_p);
+
+contactBox_img.forEach((img, index) => {
+  img.src = contactItem[index].img;
+});
+
+contactBox_p.forEach((element, index) => {
+  element.innerHTML = contactItem[index].content;
 });
