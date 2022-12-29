@@ -78,13 +78,55 @@ firstArticle.appendChild(makeTag("div", "div", mainTag("div")));
 // * 두번째 section 구성* //
 const secondAritcle = documentElem.section2.children[0];
 
+const stackImgSrc = [
+  {
+    name: "html",
+    src: "./img/HTML.png",
+  },
+  {
+    name: "css",
+    src: "./img/CSS.png",
+  },
+  {
+    name: "javascript",
+    src: "./img/js.png",
+  },
+  {
+    name: "sass",
+    src: "./img/sass.png",
+  },
+  {
+    name: "git",
+    src: "./img/git_2.png",
+  },
+  {
+    name: "nodeJS",
+    src: "./img/node_js.png",
+  },
+  {
+    name: "react",
+    src: "./img/react.png",
+  },
+  {
+    name: "mySQL",
+    src: "./img/mysql.png",
+  },
+  {
+    name: "figma",
+    src: "./img/figma.png",
+  },
+];
+
 secondAritcle.append(makeTag("div", "title-box", titleDiv));
 const div = document.createElement("div");
 secondAritcle.appendChild(div);
-for (let i = 0; i < 8; i++) {
-  const div = document.createElement("div");
-  secondAritcle.children[1].appendChild(div);
+for (let i = 0; i < stackImgSrc.length; i++) {
+  const img = document.createElement("img");
+  secondAritcle.children[1].appendChild(img);
 }
+const stackImg = secondAritcle.children[1].children;
+
+stackImg[0].src = stackImgSrc[0].src;
 
 // * 세번째 section 구성* //
 

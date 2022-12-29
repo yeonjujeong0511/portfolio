@@ -131,7 +131,7 @@ body {
       @include size(900px, 400px);
       @include display(row, space-between, baseline);
       flex-wrap: wrap;
-      & > div {
+      & > img {
         @include size(165px, 170px);
         background-color: $col-1;
         margin: 20px;
