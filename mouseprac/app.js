@@ -15,3 +15,5 @@ root.addEventListener("mouseover", function (e) {
   console.log(oriY);
   root.style.transformOrigin = `${oriX}% ${oriY}%`; // 기준점을 새로 설정한 위치로 변경
 });
+
+// 구현이 되는 데 좀 버벅거리는게 있음
