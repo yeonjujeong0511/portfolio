@@ -184,3 +184,39 @@ contactBox_img.forEach((img, index) => {
 contactBox_p.forEach((element, index) => {
   element.innerHTML = contactItem[index].content;
 });
+
+// ! wheel 연습
+
+const rootBox = document.getElementById("root");
+
+let zoom = 1;
+const ZOOM_SPEED = 0.1;
+rootBox.addEventListener("mouseenter", function (e) {
+  console.log("마우스");
+  console.dir(e.target.style.width);
+  // e.target.style.width = `${e.target.style.width * 2}px`;
+  // e.target.style.height = `${e.target.style.height * 2}px`;
+  // e.target.style.transition = "all 0.5s";
+});
+// document.addEventListener("wheel", function (e) {
+//   console.log(e.deltaY);
+//   console.log(e.deltaX);
+//   console.log(rootBox.style.transform);
+//   if (e.deltaY > 0) {
+//     rootBox.style.transform = `scale(${(zoom += ZOOM_SPEED)})`;
+//   } else {
+//     rootBox.style.transform = `scale(${(zoom -= ZOOM_SPEED)})`;
+//   }
+// });
+
+function zoomIn(e) {
+  e.target.style.width = `${e.target.style.width * 2}px`;
+  e.target.style.height = `${e.target.style.height * 2}px`;
+  e.target.style.transition = "all 0.5s";
+}
+
+function zoomOut(e) {
+  e.target.style.width = e.target.style.width;
+  e.target.style.height = e.target.style.height;
+  e.target.style.transition = "all 0.5s";
+}
