@@ -7,12 +7,17 @@
 body {
   width: 100vw;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   padding: 50px;
   background-color: #f5e6ca;
 }
 
 #root {
-  border: 5px solid #205375;
+  width: 1280px;
+  background-color: orange;
 }
 
 #header {
@@ -57,7 +62,7 @@ body {
 .title-box > div {
   width: 350px;
   height: 20px;
-  background-color: rgba(6, 17, 60, 0.3137254902);
+  background-color: rgba(6, 17, 60, 0.368627451);
 }
 
 .img-box {
@@ -156,7 +161,7 @@ body {
   align-items: baseline;
   flex-wrap: wrap;
 }
-#second-page > article > div:nth-child(2) > div {
+#second-page > article > div:nth-child(2) > img {
   width: 165px;
   height: 170px;
   background-color: #112b3c;

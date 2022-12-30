@@ -23,12 +23,14 @@ $col-4: #f5e6ca;
 
 body {
   @include size(100vw, auto);
+  @include display(column, space-between, center);
   padding: 50px;
   background-color: $col-4;
 }
 
 #root {
-  border: 5px solid $col-2;
+  width: 1280px;
+  background-color: orange;
 }
 
 #header {
@@ -62,7 +64,7 @@ body {
   }
   & > div {
     @include size(350px, 20px);
-    background-color: #06113c50;
+    background-color: #06113c5e;
   }
 }
 .img-box {
