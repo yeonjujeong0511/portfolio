@@ -1,0 +1,180 @@
+$col-1: #112b3c;
+$col-2: #205375;
+$col-3: #f66b0e;
+$col-4: #f5e6ca;
+
+@mixin display($column, $jus, $align) {
+  display: flex;
+  flex-direction: $column;
+  justify-content: $jus;
+  align-items: $align;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @include size(100vw, auto);
+  @include display(column, space-between, center);
+  padding: 50px;
+  background-color: $col-4;
+}
+
+#root {
+  width: 1280px;
+  background-color: orange;
+}
+
+#header {
+  @include size(inherit, 170px);
+  @include display(row, space-between, center);
+  border: 5px solid $col-2;
+
+  & > p:nth-child(1) {
+    @include size(50%, 170px);
+    font-size: 110px;
+    text-align: center;
+    border-right: 5px solid $col-2;
+  }
+  & p {
+    font-size: 36px;
+  }
+  & > p:nth-child(4) {
+    padding-right: 100px;
+  }
+}
+
+.article-box {
+  @include size(100%, 760px);
+  border: 3px solid $col-2;
+}
+.title-box {
+  height: 170px;
+  @include display(column, center, center);
+  & > p {
+    font-size: 42px;
+  }
+  & > div {
+    @include size(350px, 20px);
+    background-color: #06113c5e;
+  }
+}
+.img-box {
+  @include display(column, space-between, center);
+  height: 420px;
+  div {
+    @include size(300px, 200px);
+    background-color: $col-2;
+    margin-bottom: 20px;
+  }
+  p {
+    @include size(300px, 50px);
+    background-color: $col-2;
+  }
+}
+
+.contact-box {
+  @include size(900px, 70px);
+  @include display(row, center, center);
+
+  & > img {
+    @include size(60px, 60px);
+    background-color: bisque;
+  }
+  & > p {
+    padding-left: 15px;
+    font-size: 20px;
+  }
+}
+
+#first-page {
+  & > article {
+    @include display(row, center, center);
+    & > div:nth-child(1) {
+      width: 50%;
+      @include display(column, center, center);
+      & > div {
+        @include size(600px, 300px);
+        background-color: beige;
+      }
+      & > p {
+        @include size(600px, 60px);
+        background-color: beige;
+        margin-top: 20px;
+      }
+    }
+    & > div:nth-child(2) {
+      width: 50%;
+      @include display(row, center, center);
+      & > div {
+        @include size(600px, 540px);
+        width: 600px;
+        background-color: darkgray;
+      }
+    }
+  }
+}
+
+#second-page {
+  & > article {
+    @include display(column, center, center);
+    & > div:nth-child(1) {
+      @include display(column, center, center);
+    }
+    & > div:nth-child(2) {
+      @include size(900px, 400px);
+      @include display(row, space-between, baseline);
+      flex-wrap: wrap;
+      & > img {
+        @include size(165px, 170px);
+        background-color: $col-1;
+        margin: 20px;
+      }
+    }
+  }
+}
+
+#third-page {
+  & > article {
+    //article
+    @include display(row, flex-end, center);
+    & > div:nth-child(1) {
+      //article 왼쪽
+      @include size(70%, 100%);
+      background-color: beige;
+      @include display(column, space-between, center);
+      & > div:nth-child(2) {
+        @include size(1100px, 520px);
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    & > div:nth-child(2) {
+      //article 오른쪽
+      @include size(30%, 100%);
+      @include display(column, space-between, center);
+      & > div:nth-child(2) {
+        margin-bottom: 100px;
+      }
+    }
+  }
+}
+
+#fourth-page {
+  & > article {
+    @include display(column, center, center);
+    & > div:nth-child(2) {
+      @include size(1000px, 250px);
+      @include display(column, space-between, center);
+    }
+  }
+}
