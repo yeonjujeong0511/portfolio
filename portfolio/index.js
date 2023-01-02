@@ -48,6 +48,14 @@ function makeTag(parentName, parentClassName, innerhtml) {
   return parentElem;
 }
 
+// ! profile box 생성 ! //
+let profileDiv = `
+  <h1></h1>
+  <p></p>
+  <p></p>
+  <div></div>
+  `;
+
 // ! 공통된 img div 생성 ! //
 let imgDiv = `
   <div></div>
@@ -70,10 +78,25 @@ let contactDiv = `
 
 // * 첫번째 section 구성* //
 const firstArticle = documentElem.section1.children[0];
-console.dir(firstArticle);
+// console.dir(firstArticle);
 
-firstArticle.append(makeTag("div", "img-box", imgDiv));
-firstArticle.appendChild(makeTag("div", "div", mainTag("div")));
+firstArticle.append(makeTag("div", "div", mainTag("img")));
+firstArticle.append(makeTag("div", "profile-box", profileDiv));
+
+const profileImg = firstArticle.children[0].children[0];
+
+profileImg.src = "./img/profile.png";
+
+const profileContent = [
+  `"끊임없는 궁금증으로 능동적인 개발자가 되겠습니다."`,
+  "안녕하세요. front-end개발자 정연주입니다.",
+  `저는 이러이러한 개발자가 되고싶습니다<br/>저는 이러이러한 개발자가 되고싶습니다<br/>저는 이러이러한 개발자가 되고싶습니다<br/>저는 이러이러한 개발자가 되고싶습니다<br/>저는 이러이러한 개발자가 되고싶습니다`,
+];
+
+const profileBox = document.querySelector(".profile-box");
+for (let i = 0; i < profileContent.length; i++) {
+  profileBox.children[i].innerHTML = profileContent[i];
+}
 
 // * 두번째 section 구성* //
 const secondAritcle = documentElem.section2.children[0];
@@ -126,7 +149,9 @@ for (let i = 0; i < stackImgSrc.length; i++) {
 }
 const stackImg = secondAritcle.children[1].children;
 
-stackImg[0].src = stackImgSrc[0].src;
+for (let i = 0; i < stackImgSrc.length; i++) {
+  stackImg[i].src = stackImgSrc[i].src;
+}
 
 // * 세번째 section 구성* //
 
