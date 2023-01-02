@@ -19,46 +19,26 @@ $col-4: #f5e6ca;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  // 스트롤 바 숨기기
+  // overflow: hidden;
+  @include size(100vw, 100vh);
 }
 
 body {
-  @include size(100vw, auto);
-  @include display(row, center, center);
-  background-color: $col-4;
-}
-
-#root {
-  @include size(1280px, auto);
-  @include display(column, space-between, center);
-  padding: 50px;
+  @include size(100%, 100%);
+  @include display(column, flex-start, center);
 }
 
 header {
-  @include size(100%, 110px);
-  @include display(row, space-between, center);
-  background-color: antiquewhite;
-  font-size: 24px;
-  border: 1px solid $col-1;
-  padding: 10px;
-  & > div:nth-child(2) {
-    width: 525px;
-    @include display(row, space-between, center);
-    flex-wrap: wrap;
-    & > p:nth-child(1) {
-      font-size: 36px;
-      margin: 0 160px 0 160px;
-      color: #f66b0e;
-      font-weight: bold;
-    }
-  }
+  @include size(80%, 150px);
+  @include display(row, center, center);
+  border-bottom: 2px solid $col-1;
+  background-color: #f66b0e;
 }
 
-main {
-  @include size(100%, auto);
-  @include display(column, center, center);
-  & > article:nth-child(1) {
-    @include size(100%, 360px);
-    background-color: darkgray;
-    padding: 10px;
-  }
+section {
+  @include size(80%, 100%);
+  @include display(column, flex-start, center);
+  color: wheat;
+  transition-duration: 0.8s;
 }
