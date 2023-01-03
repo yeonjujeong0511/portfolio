@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-size: 100%;
   background-image: url("./img/Paper.png");
 }
 
@@ -21,7 +23,7 @@ header {
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
-  border-bottom: 2px solid #112b3c;
+  border-bottom: 3px solid #112b3c;
   position: fixed;
   top: 0;
   padding: 10px;
@@ -30,19 +32,14 @@ header {
 section {
   width: 90%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   transition-duration: 0.8s;
 }
 
 #first-section {
-  width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 #first-section > div {
   width: 90%;
@@ -52,21 +49,121 @@ section {
   justify-content: space-around;
   flex-wrap: wrap;
 }
+#first-section > div > div {
+  margin: 0 100px 30px 100px;
+}
 #first-section > img {
   width: 40%;
   position: absolute;
 }
 
-.title-box {
-  width: 300px;
-  margin: 0 100px 30px 100px;
+#second-section,
+#third-section,
+#forth-section,
+#fifth-section,
+#sixth-section,
+#sventh-section,
+#eighth-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+#second-section > div:nth-child(1),
+#third-section > div:nth-child(1),
+#forth-section > div:nth-child(1),
+#fifth-section > div:nth-child(1),
+#sixth-section > div:nth-child(1),
+#sventh-section > div:nth-child(1),
+#eighth-section > div:nth-child(1) {
+  width: 350px;
+  height: 65vh;
+  border-right: 3px solid #112b3c;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  padding: 50px 20px 0 0;
+}
+#second-section > div:nth-child(2),
+#third-section > div:nth-child(2),
+#forth-section > div:nth-child(2),
+#fifth-section > div:nth-child(2),
+#sixth-section > div:nth-child(2),
+#sventh-section > div:nth-child(2),
+#eighth-section > div:nth-child(2) {
+  width: 100%;
+  height: 70vh;
+}
+
+#second-section > div:nth-child(2) {
+  background-color: #f5e6ca;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+#second-section > div:nth-child(2) > img {
+  width: 600px;
+}
+#second-section > div:nth-child(2) > h3 {
+  font-size: 30px;
+}
+#second-section > div:nth-child(2) > p {
+  font-size: 24px;
+}
+#second-section > div:nth-child(2) > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#third-section > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 50px 150px 50px 150px;
+}
+#third-section > div:nth-child(2) > img {
+  width: 140px;
+  margin: 20px;
+}
+
+#eighth-section > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#eighth-section > div:nth-child(2) > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+#eighth-section > div:nth-child(2) > div > img {
+  margin-right: 10px;
+}
+#eighth-section > div:nth-child(2) > div > p {
+  font-size: 36px;
+  color: #112b3c;
+}
+
+.title-box {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   justify-content: space-between;
+  line-height: 0.9;
 }
 .title-box > h2 {
   font-size: 40px;
   color: #ffffff;
   text-shadow: -1px 0 #112b3c, 0 1px #112b3c, 1px 0 #112b3c, 0 -1px #112b3c;
+  font-weight: bold;
+  font-style: italic;
 }/*# sourceMappingURL=styles.css.map */
