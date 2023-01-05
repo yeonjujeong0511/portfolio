@@ -17,8 +17,16 @@ const year = todayDate.getFullYear();
 const month = todayDate.getMonth();
 
 const date = todayDate.getDate();
-const today = `${year}.${month + 1}.${date}`;
+const today = `${year}.${format(month + 1)}.${format(date)}`;
 console.log(today);
+
+// 0 이하면, 숫자 앞에 0을 붙이는 함수
+function format(item) {
+  if (item < 10) {
+    return (item = `0${item}`);
+  }
+  return item;
+}
 
 function makeTag(tagName) {
   return `<${tagName}></${tagName}>`;
@@ -51,6 +59,8 @@ let contactDiv = `
 <img />
 <p></p>
 `;
+
+const logo = ["./img/git.png", "./img/ppt.png", "./img/video.png"];
 
 const titleContent = [
   {
@@ -170,7 +180,7 @@ function sidebar(section, index) {
   nameBox.children[1].innerHTML = titleContent[index].title;
 }
 
-// ! 두번째 페이지
+// ! 두번째 페이지 (about me)
 
 sidebar(secondSection, 0);
 console.log(secondSection.children[1]);
@@ -207,7 +217,7 @@ ${makeTagContent("p", "(NODE,ECMAscript)양성 과정")}
 // nameBox.children[0].innerHTML = titleContent[0].subName;
 // nameBox.children[1].innerHTML = titleContent[0].title;
 
-// ! 세번째 페이지
+// ! 세번째 페이지 (skils)
 
 sidebar(thirdSection, 1);
 
@@ -220,8 +230,58 @@ for (let i = 0; i < stackImgSrc.length; i++) {
   stackImg[i].src = stackImgSrc[i].src;
 }
 
-// ! 네번째 페이지
+// ! 네번째 페이지 (팀프로젝트1)
+
 sidebar(forthSection, 2);
+
+const projectPage = forthSection.children[1];
+// projectPage.innerHTML = `
+// ${makeTag("div")}
+// ${makeTag("div")}
+// ${makeTag("div")}
+// `;
+
+const firstbox = `
+  <p></p>
+  <img></img>
+  <p></p>
+  `;
+
+function projectBox(parentelem, teamName) {
+  parentelem.innerHTML = `
+${makeTag("div")}
+${makeTag("div")}
+${makeTag("div")}
+`;
+  parentelem.children[0].innerHTML = `
+  ${makeTagContent("p", teamName)}
+  ${makeTag("div")}
+  ${makeTagContent("p", "PROJECT")}
+  `;
+  parentelem.children[1].innerHTML = `
+    ${makeTag("img")}
+    ${makeTag("img")}
+    ${makeTag("img")}
+  `;
+  logo.map((item, index) => {
+    parentelem.children[1].children[index].src = item;
+  });
+
+  // 여기 임시로 해놓았음
+  // 함수화 시키고 내용 객체화 필요
+  parentelem.children[2].innerHTML = `
+  ${makeTagContent("p", "프로젝트")}
+  ${makeTagContent("p", "프로젝트")}
+  ${makeTagContent("p", "프로젝트")}
+  ${makeTagContent("p", "프로젝트")}
+  ${makeTagContent("p", "프로젝트")} 
+  ${makeTagContent("p", "프로젝트")}
+  ${makeTagContent("p", "프로젝트")}
+  ${makeTagContent("p", "프로젝트")}
+  `;
+}
+projectBox(projectPage, "TEAM_NONGDAM");
+
 // ! 다섯번째 페이지
 sidebar(fifthSection, 2);
 
