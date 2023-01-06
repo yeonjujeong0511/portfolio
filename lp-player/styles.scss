@@ -1,0 +1,57 @@
+@mixin display($column, $jus, $align) {
+  display: flex;
+  flex-direction: $column;
+  justify-content: $jus;
+  align-items: $align;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // 스트롤 바 숨기기
+  // overflow: hidden;
+}
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ed775d;
+}
+
+.lp-img {
+  width: 50%;
+  border-right: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & > img:nth-child(1) {
+    padding-top: 200px;
+    width: 600px;
+    z-index: 1;
+  }
+  & > img:nth-child(2) {
+    width: 420px;
+    position: relative;
+    bottom: 475px;
+    right: 62px;
+    // animation: rotate_image 1s linear infinite;
+    transform-origin: 50% 50%;
+  }
+}
+@keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// @keyframes rotate_image {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+// }
