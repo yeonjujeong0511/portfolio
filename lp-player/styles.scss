@@ -21,6 +21,8 @@
   width: 100vw;
   height: 100vh;
   background-color: #ed775d;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .lp-img {
@@ -30,6 +32,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  left: 0;
+
   & > img:nth-child(1) {
     padding-top: 200px;
     width: 600px;
@@ -55,3 +60,24 @@
 //     transform: rotate(0deg);
 //   }
 // }
+
+.content {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+}
+
+.main {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: bisque;
+}
