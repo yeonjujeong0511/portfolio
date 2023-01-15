@@ -89,6 +89,7 @@ h2 {
     align-items: center;
     & > img {
       margin: 5px;
+      cursor: pointer;
     }
   }
 }
@@ -198,6 +199,7 @@ section {
     justify-content: flex-end;
     img {
       margin: 5px 0 0 7px;
+      cursor: pointer;
     }
   }
 }

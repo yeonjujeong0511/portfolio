@@ -73,6 +73,7 @@ h2 {
 }
 .lp-player > div > img {
   margin: 5px;
+  cursor: pointer;
 }
 
 .play {
@@ -182,4 +183,5 @@ section {
 }
 .project > div:nth-child(2) img {
   margin: 5px 0 0 7px;
+  cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */

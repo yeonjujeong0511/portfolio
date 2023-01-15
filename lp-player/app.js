@@ -100,8 +100,14 @@ ${imgTag(image[0].src)}
 ${imgTag(image[1].src)}
 ${makeTag("div")}
 `;
-contact.map((item) => {
+
+// contact 버튼 생성 및 새 페이지로 이동
+contact.map((item, index) => {
   dom.articles[0].children[2].append(imgSrc(item.img));
+  const contacts = dom.articles[0].children[2].children;
+  contacts[index].addEventListener("click", () => {
+    window.open(item.src);
+  });
 });
 
 // 두번째 article
@@ -184,6 +190,29 @@ const projectDict = [
     img: "./img/project_img1.png",
     content:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ipsa reiciendis cumque non, placeat libero ut nobis laudantium. Ad hic quos corrupti autem nam impedit atque sequi expedita, ipsam laborum.",
+    git_URL: "https://github.com/dlehdrb128/NongDam_Project",
+    ppt_URL:
+      "https://docs.google.com/presentation/d/1ESWnb4PfglA9sY83oKuCwUg_paIVlzEwiXopro77-A4/edit?usp=sharing",
+    video_URL: "",
+  },
+  {
+    img: "./img/project_img1.png",
+    content:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ipsa reiciendis cumque non, placeat libero ut nobis laudantium. Ad hic quos corrupti autem nam impedit atque sequi expedita, ipsam laborum.",
+    git_URL: " https://github.com/polarisjyb/Project-A-",
+    ppt_URL:
+      "https://docs.google.com/presentation/d/1K1Q_1AjKpgH4LMkfEvRRY6sEmjXVSWsJ1HAM4wb_vgg/edit?usp=sharing",
+    video_URL:
+      "https://drive.google.com/file/d/1ikI3nhkqNMAwaCuUiV1yM8RXi7UxYIod/view?usp=sharing",
+  },
+  {
+    img: "./img/project_img1.png",
+    content:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ipsa reiciendis cumque non, placeat libero ut nobis laudantium. Ad hic quos corrupti autem nam impedit atque sequi expedita, ipsam laborum.",
+    git_URL: "https://github.com/MAGEUNWON/ProjectB",
+    ppt_URL:
+      "https://docs.google.com/presentation/d/1VaBPeeXwe-Dwbqv0SOh-AAFMLvWgEcT248g7eLcv35g/edit?usp=sharing",
+    video_URL: "https://youtu.be/ibJ0NYnnHGc",
   },
 ];
 
@@ -202,6 +231,15 @@ function project(projectDict) {
   logo.map((item) => {
     div.children[1].append(imgSrc(item));
   });
+  function clickEvent(btn, src) {
+    btn.addEventListener("click", () => {
+      window.open(src);
+    });
+  }
+  const logoBtn = div.children[1].children;
+  clickEvent(logoBtn[0], projectDict.git_URL);
+  clickEvent(logoBtn[1], projectDict.ppt_URL);
+  clickEvent(logoBtn[2], projectDict.video_URL);
   div.children[2].append(makeTagContent("p", projectDict.content));
   return div;
 }
@@ -210,11 +248,11 @@ dom.sections[3].append(project(projectDict[0]));
 
 // 다섯번째 scection
 // 포트폴리오 뇌동매매 팀프로젝트
-dom.sections[4].append(project(projectDict[0]));
+dom.sections[4].append(project(projectDict[1]));
 
 // 여섯번째 scection
 // 포트폴리오 2남3녀 팀프로젝트
-dom.sections[5].append(project(projectDict[0]));
+dom.sections[5].append(project(projectDict[2]));
 
 // click event
 
