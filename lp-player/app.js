@@ -121,13 +121,21 @@ ${makeTag("div")}
 ${makeTag("div")}
 `;
 
-const ulList = listName.map((item) => {
-  return `<li>${item}</li>`;
+const newListName = [];
+for (let i = 0; i < listName.length; i++) {
+  newListName.push(listName[i].substring(3));
+}
+// console.log(newListName);
+
+const ulList = listName.map((item, index) => {
+  return `<li><a href="#${newListName[index]}">${item}</a></li>`;
 });
+console.log(ulList);
 
 const firstSectionChidlren = dom.sections[0].children;
 firstSectionChidlren[0].innerHTML = `${imgTag(image[2].src)}`;
 firstSectionChidlren[1].append(makeTagContent("h1", "Developer JeongYeonJu"));
+console.log(ulList);
 firstSectionChidlren[1].append(makeTagContent("ul", ulList.join("")));
 firstSectionChidlren[2].innerHTML = `
 ${imgTag(image[3].src)}
@@ -150,6 +158,9 @@ function subMainbox() {
   });
   parentElem.children[2].addEventListener("click", function () {
     dom.articles[0].children[1].classList.remove("play");
+    window.scrollTo({
+      top: 0,
+    });
   });
   return parentElem;
 }
@@ -262,4 +273,52 @@ firstSectionChidlren[2].children[0].addEventListener("click", function () {
 });
 firstSectionChidlren[2].children[1].addEventListener("click", function () {
   dom.articles[0].children[1].classList.remove("play");
+  window.scrollTo({
+    top: 0,
+  });
 });
+
+// * 스크롤 바
+window.onload = function () {
+  const sectionBoxCount = dom.sections.length;
+  dom.sections.forEach(function (item, index) {
+    item.addEventListener("mousewheel", function (event) {
+      event.preventDefault();
+      let delta = 0;
+
+      if (!event) event = window.event;
+      if (event.wheelDelta) {
+        delta = event.wheelDelta / 120;
+        if (window.opera) delta = -delta;
+      } else if (event.detail) delta = -event.detail / 3;
+
+      let moveTop = window.scrollY;
+      let elmSelector = dom.sections[index];
+
+      // wheel down : move to next section
+      if (delta < 0) {
+        if (elmSelector !== dom.sections.Count - 1) {
+          try {
+            moveTop =
+              window.pageYOffset +
+              elmSelector.nextElementSibling.getBoundingClientRect().top;
+          } catch (e) {}
+        }
+      }
+
+      // wheel up : move to previous section
+      else {
+        if (elmSelector !== 0) {
+          try {
+            moveTop =
+              window.pageYOffset +
+              elmSelector.previousElementSibling.getBoundingClientRect().top;
+          } catch (e) {}
+        }
+      }
+
+      const body = document.querySelector("html");
+      window.scrollTo({ top: moveTop });
+    });
+  });
+};

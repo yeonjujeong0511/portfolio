@@ -20,6 +20,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -41,6 +42,15 @@ h2 {
   font-style: italic;
   font-family: "GmarketSansBold";
   font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #112b3c;
+}
+
+a:hover {
+  color: #205375;
 }
 
 .lp-player {
@@ -93,7 +103,7 @@ h2 {
   }
 }
 .sub-Mainbox {
-  padding-bottom: 70px;
+  padding-bottom: 30px;
 }
 .sub-Mainbox > img:nth-child(1) {
   width: 250px;
@@ -116,48 +126,38 @@ section {
   padding: 100px;
 }
 
-.main {
+#Main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background-color: bisque;
 }
-.main ul {
+#Main ul {
   padding-top: 10px;
   padding-left: 50px;
   font-family: "GmarketSansBold";
   list-style-type: none;
   font-size: 24px;
 }
-.main ul > li {
+#Main ul > li {
   cursor: pointer;
 }
-.main > div:nth-child(3) img:hover {
+#Main > div:nth-child(3) img:hover {
   cursor: pointer;
 }
 
-.about-me {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 100px;
-}
-.about-me > div:nth-child(3) {
-  height: 100%;
-}
-
-.skils > div:nth-child(3) {
+#Skils > div:nth-child(3) {
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.skils > div:nth-child(3) img {
+#Skils > div:nth-child(3) img {
   width: 110px;
   margin: 10px;
 }
-.skils > p {
+#Skils > p {
   font-size: 20px;
   text-align: center;
 }

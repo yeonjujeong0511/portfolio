@@ -34,6 +34,7 @@ $col-5: #ffffff;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
   // 스트롤 바 숨기기
   // overflow: hidden;
 }
@@ -57,6 +58,13 @@ h2 {
   font-style: italic;
   font-family: "GmarketSansBold";
   font-size: 30px;
+}
+a {
+  text-decoration: none;
+  color: $col-1;
+}
+a:hover {
+  color: $col-2;
 }
 
 .lp-player {
@@ -103,7 +111,7 @@ h2 {
   }
 }
 .sub-Mainbox {
-  padding-bottom: 70px;
+  padding-bottom: 30px;
   & > img:nth-child(1) {
     width: 250px;
   }
@@ -126,7 +134,7 @@ section {
   padding: 100px;
 }
 
-.main {
+#Main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -151,17 +159,7 @@ section {
   }
 }
 
-.about-me {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 100px;
-  & > div:nth-child(3) {
-    height: 100%;
-  }
-}
-
-.skils {
+#Skils {
   & > div:nth-child(3) {
     padding: 20px;
     display: flex;
