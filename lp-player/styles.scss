@@ -1,3 +1,5 @@
+@import "./utils";
+
 $col-1: #112b3c;
 $col-2: #205375;
 $col-3: #f66b0e;
@@ -57,7 +59,7 @@ h1 {
 h2 {
   font-style: italic;
   font-family: "GmarketSansBold";
-  font-size: 30px;
+  font-size: 24px;
 }
 a {
   text-decoration: none;
@@ -66,42 +68,42 @@ a {
 a:hover {
   color: $col-2;
 }
-
-.lp-player {
-  width: 50%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  left: 0;
-
-  & > img:nth-child(1) {
-    padding-top: 200px;
-    width: 600px;
-    z-index: 1;
-  }
-  & > img:nth-child(2) {
-    width: 420px;
-    position: relative;
-    bottom: 475px;
-    right: 62px;
-    transform-origin: 50% 50%;
-  }
-
-  & > div {
-    position: relative;
-    top: -200px;
+@include desktop {
+  .lp-player {
+    width: 50%;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    & > img {
-      margin: 5px;
-      cursor: pointer;
+    position: fixed;
+    left: 0;
+
+    & > img:nth-child(1) {
+      padding-top: 200px;
+      width: 600px;
+      z-index: 1;
+    }
+    & > img:nth-child(2) {
+      width: 420px;
+      position: relative;
+      bottom: 475px;
+      right: 62px;
+      transform-origin: 50% 50%;
+    }
+
+    & > div {
+      position: relative;
+      top: -200px;
+      display: flex;
+      align-items: center;
+      & > img {
+        margin: 5px;
+        cursor: pointer;
+      }
     }
   }
 }
-
 .play {
   animation: rotate_image 1s linear infinite;
 }
@@ -113,7 +115,7 @@ a:hover {
 .sub-Mainbox {
   padding-bottom: 30px;
   & > img:nth-child(1) {
-    width: 250px;
+    width: 200px;
   }
   & > img:nth-child(2),
   img:nth-child(3) {
@@ -131,7 +133,7 @@ a:hover {
 section {
   width: 100%;
   height: 100vh;
-  padding: 100px;
+  padding: 50px;
 }
 
 #Main {
@@ -140,13 +142,12 @@ section {
   justify-content: space-between;
   align-items: center;
   background-color: bisque;
-
   ul {
     padding-top: 10px;
     padding-left: 50px;
     font-family: "GmarketSansBold";
-    list-style-type: none;
     font-size: 24px;
+    list-style-type: none;
 
     & > li {
       cursor: pointer;
@@ -182,7 +183,8 @@ section {
     display: flex;
     flex-direction: column;
     & > img {
-      width: inherit;
+      width: 100%;
+      height: 300px;
       border: 1px solid $col-1;
     }
     & > p {
@@ -198,6 +200,54 @@ section {
     img {
       margin: 5px 0 0 7px;
       cursor: pointer;
+    }
+  }
+  & > div:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    & > p {
+      font-size: 14px;
+    }
+  }
+}
+
+@include mobile {
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+  .lp-player {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & > img:nth-child(1) {
+      padding-top: 200px;
+      width: 600px;
+      z-index: 1;
+    }
+    & > img:nth-child(2) {
+      width: 420px;
+      position: relative;
+      bottom: 475px;
+      right: 62px;
+      transform-origin: 50% 50%;
+    }
+
+    & > div {
+      position: relative;
+      top: -200px;
+      display: flex;
+      align-items: center;
+      & > img {
+        margin: 5px;
+        cursor: pointer;
+      }
     }
   }
 }

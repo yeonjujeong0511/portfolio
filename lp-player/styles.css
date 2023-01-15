@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/* 반응형 화면 크기 */
 @font-face {
   font-family: "GmarketSansLight";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff");
@@ -41,7 +43,7 @@ h1 {
 h2 {
   font-style: italic;
   font-family: "GmarketSansBold";
-  font-size: 30px;
+  font-size: 24px;
 }
 
 a {
@@ -53,39 +55,40 @@ a:hover {
   color: #205375;
 }
 
-.lp-player {
-  width: 50%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  left: 0;
+@media (min-width: 1024px) {
+  .lp-player {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+  }
+  .lp-player > img:nth-child(1) {
+    padding-top: 200px;
+    width: 600px;
+    z-index: 1;
+  }
+  .lp-player > img:nth-child(2) {
+    width: 420px;
+    position: relative;
+    bottom: 475px;
+    right: 62px;
+    transform-origin: 50% 50%;
+  }
+  .lp-player > div {
+    position: relative;
+    top: -200px;
+    display: flex;
+    align-items: center;
+  }
+  .lp-player > div > img {
+    margin: 5px;
+    cursor: pointer;
+  }
 }
-.lp-player > img:nth-child(1) {
-  padding-top: 200px;
-  width: 600px;
-  z-index: 1;
-}
-.lp-player > img:nth-child(2) {
-  width: 420px;
-  position: relative;
-  bottom: 475px;
-  right: 62px;
-  transform-origin: 50% 50%;
-}
-.lp-player > div {
-  position: relative;
-  top: -200px;
-  display: flex;
-  align-items: center;
-}
-.lp-player > div > img {
-  margin: 5px;
-  cursor: pointer;
-}
-
 .play {
   -webkit-animation: rotate_image 1s linear infinite;
           animation: rotate_image 1s linear infinite;
@@ -106,7 +109,7 @@ a:hover {
   padding-bottom: 30px;
 }
 .sub-Mainbox > img:nth-child(1) {
-  width: 250px;
+  width: 200px;
 }
 .sub-Mainbox > img:nth-child(2),
 .sub-Mainbox img:nth-child(3) {
@@ -123,7 +126,7 @@ a:hover {
 section {
   width: 100%;
   height: 100vh;
-  padding: 100px;
+  padding: 50px;
 }
 
 #Main {
@@ -137,8 +140,8 @@ section {
   padding-top: 10px;
   padding-left: 50px;
   font-family: "GmarketSansBold";
-  list-style-type: none;
   font-size: 24px;
+  list-style-type: none;
 }
 #Main ul > li {
   cursor: pointer;
@@ -168,7 +171,8 @@ section {
   flex-direction: column;
 }
 .project > div:nth-child(1) > img {
-  width: inherit;
+  width: 100%;
+  height: 300px;
   border: 1px solid #112b3c;
 }
 .project > div:nth-child(1) > p {
@@ -184,4 +188,50 @@ section {
 .project > div:nth-child(2) img {
   margin: 5px 0 0 7px;
   cursor: pointer;
+}
+.project > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.project > div:nth-child(3) > p {
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+  .lp-player {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .lp-player > img:nth-child(1) {
+    padding-top: 200px;
+    width: 600px;
+    z-index: 1;
+  }
+  .lp-player > img:nth-child(2) {
+    width: 420px;
+    position: relative;
+    bottom: 475px;
+    right: 62px;
+    transform-origin: 50% 50%;
+  }
+  .lp-player > div {
+    position: relative;
+    top: -200px;
+    display: flex;
+    align-items: center;
+  }
+  .lp-player > div > img {
+    margin: 5px;
+    cursor: pointer;
+  }
 }/*# sourceMappingURL=styles.css.map */

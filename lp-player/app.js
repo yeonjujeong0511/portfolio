@@ -199,31 +199,43 @@ dom.sections[2].append(
 const projectDict = [
   {
     img: "./img/project_img1.png",
-    content:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ipsa reiciendis cumque non, placeat libero ut nobis laudantium. Ad hic quos corrupti autem nam impedit atque sequi expedita, ipsam laborum.",
     git_URL: "https://github.com/dlehdrb128/NongDam_Project",
     ppt_URL:
       "https://docs.google.com/presentation/d/1ESWnb4PfglA9sY83oKuCwUg_paIVlzEwiXopro77-A4/edit?usp=sharing",
     video_URL: "",
+    name: "못난이 농산물 판매 서비스",
+    period: "22.09.07 - 22.10.26 ( 5인 프로젝트 )",
+    desc: "node.js로 서버를 구축 및 mySQL DB 연결해서 데이터를 저장 시키고, React로  화면에 출력하였다.로그인으로 권한 확인을 하여 사업자회원과 일반회원의 페이지 출력을 다르게 설정하여 회원에 맞는 기능을 구현시켰다.",
+    function:
+      "로그인, 상품 검색, 상품 상세페이지, 상품 리뷰, 장바구니, 레시피 검색, 레시피 등록, 5일장 정보, 스토어 정보, 사업자 회원 스토어 및 상품등록",
+    etc: "사업자회원 페이지를 맡아  front와 back 작업을 모두 하였고 스토어와 상품등록 기능 외에 다른 기능을 더 구현하지 못해서 아쉬웠지만, 입력한 정보를 DB에서 저장하고 불러오는 기능을 배웠다. React를 처음 사용하여  SPA에 대해 이해 할 수있는 시간이였다.",
   },
   {
     img: "./img/project_img1.png",
-    content:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ipsa reiciendis cumque non, placeat libero ut nobis laudantium. Ad hic quos corrupti autem nam impedit atque sequi expedita, ipsam laborum.",
     git_URL: " https://github.com/polarisjyb/Project-A-",
     ppt_URL:
       "https://docs.google.com/presentation/d/1K1Q_1AjKpgH4LMkfEvRRY6sEmjXVSWsJ1HAM4wb_vgg/edit?usp=sharing",
     video_URL:
       "https://drive.google.com/file/d/1ikI3nhkqNMAwaCuUiV1yM8RXi7UxYIod/view?usp=sharing",
+    name: "주식 매도.매수 추천 서비스",
+    period: " 22.11.07- 22.12.02 ( 4인 프로젝트 )",
+    desc: "주어진 데이터를 기반으로 파이썬에서 maria DB 연동 후 React로 화면 구성 및 컴포넌트 구성을 하였고, 4가지의 알고리즘을 통해 각가의 매수와 매도를 추천해준 후 종합적으로 매수와 매도의  비율을 제공해주었다.",
+    function:
+      "각 종목별 정보 및 기간별 캔틀차트, 전략별 알고리즘을 통한 매수.매도추천 서비스",
+    etc: "전체적인 컴포넌트 구성 및  종목별 정보 출력, 거래량 알고리즘을 맡아서 하였고, 검색 기능 구현을 하지 못 해서 차트에 있는 종목만 클릭을 통해  정보를 알 수 있던 점이 아쉬웠지만 파이썬을 통한  데이터베이스 및 서버 연동에 대해 배울 수 있었고, 알고리즘을 통해 각 종목의 결과를 나타낼  수 있었다",
   },
   {
     img: "./img/project_img1.png",
-    content:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi ipsa reiciendis cumque non, placeat libero ut nobis laudantium. Ad hic quos corrupti autem nam impedit atque sequi expedita, ipsam laborum.",
     git_URL: "https://github.com/MAGEUNWON/ProjectB",
     ppt_URL:
       "https://docs.google.com/presentation/d/1VaBPeeXwe-Dwbqv0SOh-AAFMLvWgEcT248g7eLcv35g/edit?usp=sharing",
     video_URL: "https://youtu.be/ibJ0NYnnHGc",
+    name: "대전 교통 안내 서비스 및 네비게이션 서비스",
+    period: "22.12.12-22.12.23 ( 5인 프로젝트 ) ",
+    desc: " 다양한 API를 활용하여 데이터를 정보를 지도에 표시하고, 파이썬으로 서버 구축 및 DB를 가공하였고 React로 map API를 출력하였다. 주어진 노드 및 링크 데이터를 가공하여 클릭시, 소요시간 및 거리정보를 제공해주었다.",
+    function:
+      "CCTV 정보, 도로 돌발 상황 정보, 보호구역 정보, 주차장 정보, 지도 검색 기능, 길찾기 기능",
+    etc: "실시간 돌발정보와 주차장 정보 마커 표시를 맡아서 하였고 지도 api에 다양한 기능을 구현했어야 해서 전역 상태관리의 필요성을 느꼈고 DB 테이블의 컬럼명을 공통으로 설정하지 못한 부분이 아쉬웠다. 그렇지만 다양한 API를 활용할 수 있었고, 파이썬을 이용해 API를 DB에 저장할 수 있었다. ",
   },
 ];
 
@@ -232,10 +244,9 @@ function project(projectDict) {
   div.innerHTML = `
     ${makeTag("div")}
     ${makeTag("div")}
-    ${makeTag("div")}
+    ${makeTag("div")} 
   `;
   div.className = "project";
-  console.log(div.children[0]);
   div.children[0].append(imgSrc(projectDict.img));
   div.children[0].append(makeTagContent("p", "PROJECT"));
 
@@ -251,7 +262,16 @@ function project(projectDict) {
   clickEvent(logoBtn[0], projectDict.git_URL);
   clickEvent(logoBtn[1], projectDict.ppt_URL);
   clickEvent(logoBtn[2], projectDict.video_URL);
-  div.children[2].append(makeTagContent("p", projectDict.content));
+  console.log(div.children[2]);
+  const desc = div.children[2];
+  desc.append(makeTagContent("h3", projectDict.name));
+  desc.append(makeTagContent("p", projectDict.period));
+  desc.append(makeTagContent("p", projectDict.desc));
+  desc.append(makeTagContent("h4", "주요기능"));
+  desc.append(makeTagContent("p", projectDict.function));
+  desc.append(makeTagContent("h4", "아쉬운점 및 발전사항"));
+  desc.append(makeTagContent("p", projectDict.etc));
+
   return div;
 }
 
