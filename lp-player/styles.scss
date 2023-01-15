@@ -1,3 +1,9 @@
+$col-1: #112b3c;
+$col-2: #205375;
+$col-3: #f66b0e;
+$col-4: #f5e6ca;
+$col-5: #ffffff;
+
 @mixin display($column, $jus, $align) {
   display: flex;
   flex-direction: $column;
@@ -10,6 +16,20 @@
   height: $height;
 }
 
+@mixin font-face($weight) {
+  @font-face {
+    font-family: "GmarketSans#{$weight}";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSans#{$weight}.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@include font-face("Light");
+@include font-face("Medium");
+@include font-face("Bold");
+
 * {
   margin: 0;
   padding: 0;
@@ -17,18 +37,31 @@
   // 스트롤 바 숨기기
   // overflow: hidden;
 }
+
 #root {
   width: 100vw;
   height: auto;
   background-color: #ed775d;
   display: flex;
   justify-content: flex-end;
+  color: $col-1;
+}
+
+h1 {
+  font-family: "GmarketSansBold";
+  font-size: 32px;
+  font-style: italic;
+}
+
+h2 {
+  font-style: italic;
+  font-family: "GmarketSansBold";
+  font-size: 30px;
 }
 
 .lp-player {
   width: 50%;
   height: 100vh;
-  border-right: 1px solid white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,40 +79,75 @@
     position: relative;
     bottom: 475px;
     right: 62px;
-    //animation: rotate_image 1s linear infinite;
     transform-origin: 50% 50%;
   }
+
+  & > div {
+    position: relative;
+    top: -200px;
+    display: flex;
+    align-items: center;
+    & > img {
+      margin: 5px;
+    }
+  }
+}
+
+.play {
+  animation: rotate_image 1s linear infinite;
 }
 @keyframes rotate_image {
   100% {
     transform: rotate(360deg);
   }
 }
-
-// @keyframes rotate_image {
-//   0% {
-//     transform: rotate(0deg);
-//   }
-// }
+.sub-Mainbox {
+  padding-bottom: 70px;
+  & > img:nth-child(1) {
+    width: 250px;
+  }
+  & > img:nth-child(2),
+  img:nth-child(3) {
+    cursor: pointer;
+  }
+}
 
 .content {
   width: 50%;
   display: flex;
   flex-direction: column;
+  font-family: "GmarketSansMedium";
 }
 
 section {
   width: 100%;
   height: 100vh;
+  padding: 100px;
 }
 
 .main {
-  padding: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background-color: bisque;
+
+  ul {
+    padding-top: 10px;
+    padding-left: 50px;
+    font-family: "GmarketSansBold";
+    list-style-type: none;
+    font-size: 24px;
+
+    & > li {
+      cursor: pointer;
+    }
+  }
+  & > div:nth-child(3) {
+    img:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .about-me {
@@ -87,13 +155,49 @@ section {
   flex-direction: column;
   justify-content: space-between;
   padding: 100px;
-  & > div:nth-child(1) {
-    padding-bottom: 100px;
-    & > img:nth-child(1) {
-      width: 300px;
-    }
-  }
   & > div:nth-child(3) {
     height: 100%;
+  }
+}
+
+.skils {
+  & > div:nth-child(3) {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    img {
+      width: 110px;
+      margin: 10px;
+    }
+  }
+  & > p {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.project {
+  & > div:nth-child(1) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    & > img {
+      width: inherit;
+      border: 1px solid $col-1;
+    }
+    & > p {
+      width: inherit;
+      text-align: center;
+      background-color: $col-1;
+      color: $col-5;
+    }
+  }
+  & > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end;
+    img {
+      margin: 5px 0 0 7px;
+    }
   }
 }

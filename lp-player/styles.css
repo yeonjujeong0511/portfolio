@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "GmarketSansLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GmarketSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
@@ -10,12 +28,24 @@
   background-color: #ed775d;
   display: flex;
   justify-content: flex-end;
+  color: #112b3c;
+}
+
+h1 {
+  font-family: "GmarketSansBold";
+  font-size: 32px;
+  font-style: italic;
+}
+
+h2 {
+  font-style: italic;
+  font-family: "GmarketSansBold";
+  font-size: 30px;
 }
 
 .lp-player {
   width: 50%;
   height: 100vh;
-  border-right: 1px solid white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,6 +65,20 @@
   right: 62px;
   transform-origin: 50% 50%;
 }
+.lp-player > div {
+  position: relative;
+  top: -200px;
+  display: flex;
+  align-items: center;
+}
+.lp-player > div > img {
+  margin: 5px;
+}
+
+.play {
+  -webkit-animation: rotate_image 1s linear infinite;
+          animation: rotate_image 1s linear infinite;
+}
 
 @-webkit-keyframes rotate_image {
   100% {
@@ -47,24 +91,49 @@
     transform: rotate(360deg);
   }
 }
+.sub-Mainbox {
+  padding-bottom: 70px;
+}
+.sub-Mainbox > img:nth-child(1) {
+  width: 250px;
+}
+.sub-Mainbox > img:nth-child(2),
+.sub-Mainbox img:nth-child(3) {
+  cursor: pointer;
+}
+
 .content {
   width: 50%;
   display: flex;
   flex-direction: column;
+  font-family: "GmarketSansMedium";
 }
 
 section {
   width: 100%;
   height: 100vh;
+  padding: 100px;
 }
 
 .main {
-  padding: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background-color: bisque;
+}
+.main ul {
+  padding-top: 10px;
+  padding-left: 50px;
+  font-family: "GmarketSansBold";
+  list-style-type: none;
+  font-size: 24px;
+}
+.main ul > li {
+  cursor: pointer;
+}
+.main > div:nth-child(3) img:hover {
+  cursor: pointer;
 }
 
 .about-me {
@@ -73,12 +142,44 @@ section {
   justify-content: space-between;
   padding: 100px;
 }
-.about-me > div:nth-child(1) {
-  padding-bottom: 100px;
-}
-.about-me > div:nth-child(1) > img:nth-child(1) {
-  width: 300px;
-}
 .about-me > div:nth-child(3) {
   height: 100%;
+}
+
+.skils > div:nth-child(3) {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.skils > div:nth-child(3) img {
+  width: 110px;
+  margin: 10px;
+}
+.skils > p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.project > div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.project > div:nth-child(1) > img {
+  width: inherit;
+  border: 1px solid #112b3c;
+}
+.project > div:nth-child(1) > p {
+  width: inherit;
+  text-align: center;
+  background-color: #112b3c;
+  color: #ffffff;
+}
+.project > div:nth-child(2) {
+  display: flex;
+  justify-content: flex-end;
+}
+.project > div:nth-child(2) img {
+  margin: 5px 0 0 7px;
 }/*# sourceMappingURL=styles.css.map */
