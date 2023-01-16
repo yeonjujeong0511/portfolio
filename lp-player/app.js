@@ -6,36 +6,36 @@ const dom = {
 const image = [
   {
     name: "lp-player",
-    src: "./img/lp-player.png",
+    src: "https://images2.imgbox.com/45/6d/e5MgYSML_o.png",
   },
   {
     name: "lp-img",
-    src: "./img/lp.png",
+    src: "https://images2.imgbox.com/a3/51/nr2FWOCu_o.png",
   },
   {
     name: "record",
-    src: "./img/record.png",
+    src: "https://images2.imgbox.com/4e/2a/IDNOC8sr_o.png",
   },
   {
     name: "play-btn",
-    src: "./img/play-btn.png",
+    src: "https://images2.imgbox.com/8e/0e/5wdGGj5E_o.png",
   },
   {
     name: "stop-btn",
-    src: "./img/stop-btn.png",
+    src: "https://images2.imgbox.com/e2/ce/WlCBY6Yw_o.png",
   },
 ];
 
 const skils = [
-  "./img/skil_HTML.png",
-  "./img/skil_CSS.png",
-  "./img/skil_js.png",
-  "./img/skil_sass.png",
-  "./img/skil_mysql.png",
-  "./img/skil_node_js.png",
-  "./img/skil_react.png",
-  "./img/skil_git.png",
-  "./img/skil_figma.png",
+  "https://images2.imgbox.com/14/c4/hL4bEmDY_o.png",
+  "https://images2.imgbox.com/d7/d3/kNXttwxL_o.png",
+  "https://images2.imgbox.com/59/6c/8yPmjPDP_o.png",
+  "https://images2.imgbox.com/29/59/lx6OJMqT_o.png",
+  "https://images2.imgbox.com/9b/57/9UNZzD0e_o.png",
+  "https://images2.imgbox.com/32/b6/vWULvTDw_o.png",
+  "https://images2.imgbox.com/8c/d9/jkyUbUyI_o.png",
+  "https://images2.imgbox.com/a8/28/6JGtCsBI_o.png",
+  "https://images2.imgbox.com/35/48/M7dtSi5W_o.png",
 ];
 
 const bgc = ["#eee1", "#eee2", "#eee3", "#eee4", "#eee5", "#eee6", "#eee7"];
@@ -52,19 +52,23 @@ const listName = [
 const contact = [
   {
     src: "https://github.com/yeonjujeong0511",
-    img: "./img/git_2.png",
+    img: "https://images2.imgbox.com/f9/f4/7nzd6Hv0_o.png",
   },
   {
     src: "yeonjujeong0511@gmail.com",
-    img: "./img/mail.png",
+    img: "https://images2.imgbox.com/94/81/kyjGCqLm_o.png",
   },
   {
     src: "https://velog.io/@yeonju0511",
-    img: "./img/velog.png",
+    img: "https://images2.imgbox.com/43/0a/f6idVWBV_o.png",
   },
 ];
 
-const logo = ["./img/git.png", "./img/ppt.png", "./img/video.png"];
+const logo = [
+  "https://images2.imgbox.com/25/d6/ebhiJ0HL_o.png",
+  "https://images2.imgbox.com/8d/23/lCR5k1zt_o.png",
+  "https://images2.imgbox.com/5a/f5/eoBpZtrH_o.png",
+];
 
 function makeTag(tagName) {
   return `<${tagName}></${tagName}>`;
@@ -79,8 +83,6 @@ function makeTagContent(parentName, innerhtml) {
 function imgTag(imgsrc) {
   return `<img src=${imgsrc} />`;
 }
-
-imgTag("./img/stop-btn.png");
 
 // 페이지 구분용 (임시)
 bgc.map((item, index) => {
@@ -198,7 +200,7 @@ dom.sections[2].append(
 
 const projectDict = [
   {
-    img: "./img/project_img1.png",
+    img: "https://images2.imgbox.com/e4/d1/V8H0TyQI_o.png",
     git_URL: "https://github.com/dlehdrb128/NongDam_Project",
     ppt_URL:
       "https://docs.google.com/presentation/d/1ESWnb4PfglA9sY83oKuCwUg_paIVlzEwiXopro77-A4/edit?usp=sharing",
@@ -211,7 +213,7 @@ const projectDict = [
     etc: "사업자회원 페이지를 맡아  front와 back 작업을 모두 하였고 스토어와 상품등록 기능 외에 다른 기능을 더 구현하지 못해서 아쉬웠지만, 입력한 정보를 DB에서 저장하고 불러오는 기능을 배웠다. React를 처음 사용하여  SPA에 대해 이해 할 수있는 시간이였다.",
   },
   {
-    img: "./img/project_img1.png",
+    img: "https://images2.imgbox.com/e4/d1/V8H0TyQI_o.png",
     git_URL: " https://github.com/polarisjyb/Project-A-",
     ppt_URL:
       "https://docs.google.com/presentation/d/1K1Q_1AjKpgH4LMkfEvRRY6sEmjXVSWsJ1HAM4wb_vgg/edit?usp=sharing",
@@ -225,7 +227,7 @@ const projectDict = [
     etc: "전체적인 컴포넌트 구성 및  종목별 정보 출력, 거래량 알고리즘을 맡아서 하였고, 검색 기능 구현을 하지 못 해서 차트에 있는 종목만 클릭을 통해  정보를 알 수 있던 점이 아쉬웠지만 파이썬을 통한  데이터베이스 및 서버 연동에 대해 배울 수 있었고, 알고리즘을 통해 각 종목의 결과를 나타낼  수 있었다",
   },
   {
-    img: "./img/project_img1.png",
+    img: "https://images2.imgbox.com/e4/d1/V8H0TyQI_o.png",
     git_URL: "https://github.com/MAGEUNWON/ProjectB",
     ppt_URL:
       "https://docs.google.com/presentation/d/1VaBPeeXwe-Dwbqv0SOh-AAFMLvWgEcT248g7eLcv35g/edit?usp=sharing",

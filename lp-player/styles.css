@@ -55,40 +55,36 @@ a:hover {
   color: #205375;
 }
 
-@media (min-width: 1024px) {
-  .lp-player {
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    left: 0;
-  }
-  .lp-player > img:nth-child(1) {
-    padding-top: 200px;
-    width: 600px;
-    z-index: 1;
-  }
-  .lp-player > img:nth-child(2) {
-    width: 420px;
-    position: relative;
-    bottom: 475px;
-    right: 62px;
-    transform-origin: 50% 50%;
-  }
-  .lp-player > div {
-    position: relative;
-    top: -200px;
-    display: flex;
-    align-items: center;
-  }
-  .lp-player > div > img {
-    margin: 5px;
-    cursor: pointer;
-  }
+.lp-player {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+.lp-player > img:nth-child(1) {
+  padding-top: 200px;
+  width: 600px;
+  z-index: 1;
+}
+.lp-player > img:nth-child(2) {
+  width: 420px;
+  position: relative;
+  bottom: 475px;
+  right: 62px;
+  transform-origin: 50% 50%;
+}
+.lp-player > div {
+  position: relative;
+  top: -200px;
+  display: flex;
+  align-items: center;
+}
+.lp-player > div > img {
+  margin: 5px;
+  cursor: pointer;
+}
+
 .play {
   -webkit-animation: rotate_image 1s linear infinite;
           animation: rotate_image 1s linear infinite;
@@ -110,10 +106,12 @@ a:hover {
 }
 .sub-Mainbox > img:nth-child(1) {
   width: 200px;
+  margin-right: 10px;
 }
 .sub-Mainbox > img:nth-child(2),
 .sub-Mainbox img:nth-child(3) {
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .content {
@@ -151,7 +149,8 @@ section {
 }
 
 #Skils > div:nth-child(3) {
-  padding: 20px;
+  margin-top: 30px;
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -161,6 +160,7 @@ section {
   margin: 10px;
 }
 #Skils > p {
+  margin-top: 20px;
   font-size: 20px;
   text-align: center;
 }
@@ -199,39 +199,32 @@ section {
   font-size: 14px;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 1024px) {
+  .lp-player {
+    width: 50%;
+    position: fixed;
+    left: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
   #root {
-    display: flex;
     flex-direction: column;
   }
   .lp-player {
     width: 100%;
-    height: 100vh;
-    display: flex;
+  }
+  .content {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  #root {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
-  .lp-player > img:nth-child(1) {
-    padding-top: 200px;
-    width: 600px;
-    z-index: 1;
+  .lp-player {
+    width: 100%;
   }
-  .lp-player > img:nth-child(2) {
-    width: 420px;
-    position: relative;
-    bottom: 475px;
-    right: 62px;
-    transform-origin: 50% 50%;
-  }
-  .lp-player > div {
-    position: relative;
-    top: -200px;
-    display: flex;
-    align-items: center;
-  }
-  .lp-player > div > img {
-    margin: 5px;
-    cursor: pointer;
+  .content {
+    width: 100%;
   }
 }/*# sourceMappingURL=styles.css.map */
