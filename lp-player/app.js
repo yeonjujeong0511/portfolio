@@ -70,6 +70,11 @@ const logo = [
   "https://images2.imgbox.com/5a/f5/eoBpZtrH_o.png",
 ];
 
+const btn = [
+  "https://images2.imgbox.com/c1/e5/01z2Y2QD_o.png",
+  "https://images2.imgbox.com/94/54/gZKPIvJc_o.png",
+];
+
 function makeTag(tagName) {
   return `<${tagName}></${tagName}>`;
 }
@@ -223,7 +228,7 @@ const projectDict = [
     period: " 22.11.07- 22.12.02 ( 4인 프로젝트 )",
     desc: "주어진 데이터를 기반으로 파이썬에서 maria DB 연동 후 React로 화면 구성 및 컴포넌트 구성을 하였고, 4가지의 알고리즘을 통해 각가의 매수와 매도를 추천해준 후 종합적으로 매수와 매도의  비율을 제공해주었다.",
     function:
-      "각 종목별 정보 및 기간별 캔틀차트, 전략별 알고리즘을 통한 매수.매도추천 서비스",
+      "각 종목별 정보 및 기간별 캔틀차트, 전략별 알고리즘을 통한 매수·매도추천 서비스",
     etc: "전체적인 컴포넌트 구성 및  종목별 정보 출력, 거래량 알고리즘을 맡아서 하였고, 검색 기능 구현을 하지 못 해서 차트에 있는 종목만 클릭을 통해  정보를 알 수 있던 점이 아쉬웠지만 파이썬을 통한  데이터베이스 및 서버 연동에 대해 배울 수 있었고, 알고리즘을 통해 각 종목의 결과를 나타낼  수 있었다",
   },
   {
@@ -249,8 +254,16 @@ function project(projectDict) {
     ${makeTag("div")} 
   `;
   div.className = "project";
-  div.children[0].append(imgSrc(projectDict.img));
-  div.children[0].append(makeTagContent("p", "PROJECT"));
+  div.children[0].innerHTML = `
+  ${makeTag("img")}
+  ${makeTag("div")}
+  ${makeTag("img")}
+  `;
+  const projectImg = div.children[0];
+  projectImg.children[0].src = btn[0];
+  projectImg.children[1].append(imgSrc(projectDict.img));
+  projectImg.children[1].append(makeTagContent("p", "PROJECT"));
+  projectImg.children[2].src = btn[1];
 
   logo.map((item) => {
     div.children[1].append(imgSrc(item));
