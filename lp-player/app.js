@@ -84,7 +84,11 @@ function makeTagContent(parentName, innerhtml) {
   parentElem.innerHTML = innerhtml;
   return parentElem;
 }
-
+function elemClassName(tagName, className) {
+  const elem = document.createElement(tagName);
+  elem.className = className;
+  return elem;
+}
 function imgTag(imgsrc) {
   return `<img src=${imgsrc} />`;
 }
@@ -205,7 +209,15 @@ dom.sections[2].append(
 
 const projectDict = [
   {
-    img: "https://images2.imgbox.com/e4/d1/V8H0TyQI_o.png",
+    img: [
+      "https://images2.imgbox.com/bb/3a/pZztdzIm_o.jpg",
+      "https://images2.imgbox.com/44/86/hMJJ6sU8_o.jpg",
+      "https://images2.imgbox.com/b0/d0/cw2u0N8x_o.jpg",
+      "https://images2.imgbox.com/dd/03/YzW4JToz_o.jpg",
+      "https://images2.imgbox.com/a9/b6/kyfHF5Zb_o.jpg",
+      "https://images2.imgbox.com/92/e8/7B0bjZEg_o.jpg",
+      "https://images2.imgbox.com/34/be/mD8qfbmU_o.jpg",
+    ],
     git_URL: "https://github.com/dlehdrb128/NongDam_Project",
     ppt_URL:
       "https://docs.google.com/presentation/d/1ESWnb4PfglA9sY83oKuCwUg_paIVlzEwiXopro77-A4/edit?usp=sharing",
@@ -218,7 +230,11 @@ const projectDict = [
     etc: "사업자회원 페이지를 맡아  front와 back 작업을 모두 하였고 스토어와 상품등록 기능 외에 다른 기능을 더 구현하지 못해서 아쉬웠지만, 입력한 정보를 DB에서 저장하고 불러오는 기능을 배웠다. React를 처음 사용하여  SPA에 대해 이해 할 수있는 시간이였다.",
   },
   {
-    img: "https://images2.imgbox.com/e4/d1/V8H0TyQI_o.png",
+    img: [
+      "https://images2.imgbox.com/bb/3a/pZztdzIm_o.jpg",
+      "https://images2.imgbox.com/7b/3d/oXUZhMwS_o.jpg",
+      "https://images2.imgbox.com/b0/d0/cw2u0N8x_o.jpg",
+    ],
     git_URL: " https://github.com/polarisjyb/Project-A-",
     ppt_URL:
       "https://docs.google.com/presentation/d/1K1Q_1AjKpgH4LMkfEvRRY6sEmjXVSWsJ1HAM4wb_vgg/edit?usp=sharing",
@@ -232,7 +248,11 @@ const projectDict = [
     etc: "전체적인 컴포넌트 구성 및  종목별 정보 출력, 거래량 알고리즘을 맡아서 하였고, 검색 기능 구현을 하지 못 해서 차트에 있는 종목만 클릭을 통해  정보를 알 수 있던 점이 아쉬웠지만 파이썬을 통한  데이터베이스 및 서버 연동에 대해 배울 수 있었고, 알고리즘을 통해 각 종목의 결과를 나타낼  수 있었다",
   },
   {
-    img: "https://images2.imgbox.com/e4/d1/V8H0TyQI_o.png",
+    img: [
+      "https://images2.imgbox.com/bb/3a/pZztdzIm_o.jpg",
+      "https://images2.imgbox.com/7b/3d/oXUZhMwS_o.jpg",
+      "https://images2.imgbox.com/b0/d0/cw2u0N8x_o.jpg",
+    ],
     git_URL: "https://github.com/MAGEUNWON/ProjectB",
     ppt_URL:
       "https://docs.google.com/presentation/d/1VaBPeeXwe-Dwbqv0SOh-AAFMLvWgEcT248g7eLcv35g/edit?usp=sharing",
@@ -261,9 +281,71 @@ function project(projectDict) {
   `;
   const projectImg = div.children[0];
   projectImg.children[0].src = btn[0];
-  projectImg.children[1].append(imgSrc(projectDict.img));
-  projectImg.children[1].append(makeTagContent("p", "PROJECT"));
   projectImg.children[2].src = btn[1];
+
+  projectImg.children[1].append(elemClassName("div", "img-container"));
+  const imgContainer = projectImg.children[1].children[0];
+
+  console.log(projectDict.img);
+  function imgbox(imgsrc) {
+    const imgBox = document.createElement("div");
+    const img = document.createElement("img");
+    imgBox.append(img);
+    img.src = imgsrc;
+    return imgBox;
+  }
+  for (let i = 0; i < projectDict.img.length; i++) {
+    imgContainer.append(imgbox(projectDict.img[i]));
+  }
+  const slides = imgContainer.children;
+  console.log(slides);
+  const slideImg = document.querySelectorAll(".img-container div");
+  console.log(slideImg);
+  let counter = 0;
+  const prevBtn = projectImg.children[0];
+  const nextBtn = projectImg.children[2];
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.left = `${i * 100}%`;
+  }
+  // slides.forEach(function (slide, index) {
+  //   slide.style.left = `${index * 100}%`;
+  //   // console.log(slide);
+  // });
+  nextBtn.addEventListener("click", function () {
+    counter++;
+    carousel();
+  });
+  prevBtn.addEventListener("click", function () {
+    counter--;
+    carousel();
+  });
+
+  function carousel() {
+    // 버튼 보이고, 안보이고!
+    if (counter < slides.length - 1) {
+      nextBtn.style.display = "block";
+    } else {
+      nextBtn.style.display = "none";
+    }
+    if (counter > 0) {
+      prevBtn.style.display = "block";
+    } else {
+      prevBtn.style.display = "none";
+    }
+
+    // 함수 실행될때마다, translateX의 값으로 위치 조정
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.transform = `translateX(-${counter * 100}%)`;
+    }
+    // slides.forEach(function (slide) {
+    //   console.log(slide);
+    //   slide.style.transform = `translateX(-${counter * 100}%)`;
+    // });
+  }
+  prevBtn.style.display = "none";
+  console.log(projectDict.img.length);
+  projectImg.children[1].append(makeTagContent("p", "PROJECT"));
 
   logo.map((item) => {
     div.children[1].append(imgSrc(item));
