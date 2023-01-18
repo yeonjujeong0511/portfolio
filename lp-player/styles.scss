@@ -44,7 +44,13 @@ $col-5: #ffffff;
 #root {
   width: 100vw;
   height: auto;
-  background-color: #ed775d;
+  // 구름이미지
+  background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-background_23-2148998534.jpg?w=1380&t=st=1674030461~exp=1674031061~hmac=e0629cb9921df2f7943aad3a1dfe45af2c83d3658f61bbc08553a6eea6d58fea");
+
+  // background-size: contain;
+  background-size: cover;
+
+  // background-color: #ed775d;
   display: flex;
   justify-content: flex-end;
   color: $col-1;
@@ -69,6 +75,7 @@ a:hover {
   color: $col-2;
 }
 
+// 왼쪽 고정 lp-player
 .lp-player {
   height: 100vh;
   display: flex;
@@ -141,6 +148,11 @@ section {
   justify-content: space-between;
   align-items: center;
   background-color: bisque;
+  & > div:nth-child(1) {
+    & > img {
+      width: 500px;
+    }
+  }
   ul {
     padding-top: 10px;
     padding-left: 50px;
@@ -169,6 +181,7 @@ section {
     img {
       width: 110px;
       margin: 10px;
+      object-fit: contain;
     }
   }
   & > p {

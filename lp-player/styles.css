@@ -28,7 +28,8 @@
 #root {
   width: 100vw;
   height: auto;
-  background-color: #ed775d;
+  background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-background_23-2148998534.jpg?w=1380&t=st=1674030461~exp=1674031061~hmac=e0629cb9921df2f7943aad3a1dfe45af2c83d3658f61bbc08553a6eea6d58fea");
+  background-size: cover;
   display: flex;
   justify-content: flex-end;
   color: #112b3c;
@@ -134,6 +135,9 @@ section {
   align-items: center;
   background-color: bisque;
 }
+#Main > div:nth-child(1) > img {
+  width: 500px;
+}
 #Main ul {
   padding-top: 10px;
   padding-left: 50px;
@@ -158,6 +162,8 @@ section {
 #Skils > div:nth-child(3) img {
   width: 110px;
   margin: 10px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 #Skils > p {
   margin-top: 20px;

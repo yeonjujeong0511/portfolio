@@ -10,11 +10,11 @@ const image = [
   },
   {
     name: "lp-img",
-    src: "https://images2.imgbox.com/a3/51/nr2FWOCu_o.png",
+    src: "https://images2.imgbox.com/7a/5b/4Umz6Sm9_o.png",
   },
   {
     name: "record",
-    src: "https://images2.imgbox.com/4e/2a/IDNOC8sr_o.png",
+    src: "https://images2.imgbox.com/c4/b4/DiPi3Wbr_o.png",
   },
   {
     name: "play-btn",
@@ -29,11 +29,15 @@ const image = [
 const skils = [
   "https://images2.imgbox.com/14/c4/hL4bEmDY_o.png",
   "https://images2.imgbox.com/d7/d3/kNXttwxL_o.png",
-  "https://images2.imgbox.com/59/6c/8yPmjPDP_o.png",
-  "https://images2.imgbox.com/29/59/lx6OJMqT_o.png",
+  "https://images2.imgbox.com/24/31/oRNUpieN_o.png",
+  "https://images2.imgbox.com/62/33/FFQeMXfH_o.png",
+  "https://images2.imgbox.com/95/02/Xl941NTk_o.png",
   "https://images2.imgbox.com/9b/57/9UNZzD0e_o.png",
   "https://images2.imgbox.com/32/b6/vWULvTDw_o.png",
   "https://images2.imgbox.com/8c/d9/jkyUbUyI_o.png",
+  "https://images2.imgbox.com/29/59/lx6OJMqT_o.png",
+  "https://images2.imgbox.com/c4/a0/7k0iOWg2_o.png",
+  "https://images2.imgbox.com/11/af/fgdRrkAu_o.png",
   "https://images2.imgbox.com/a8/28/6JGtCsBI_o.png",
   "https://images2.imgbox.com/35/48/M7dtSi5W_o.png",
 ];
@@ -93,18 +97,17 @@ function imgTag(imgsrc) {
   return `<img src=${imgsrc} />`;
 }
 
-// 페이지 구분용 (임시)
-bgc.map((item, index) => {
-  dom.sections[index].style.backgroundColor = item;
-});
-
 function imgSrc(imgsrc) {
   const img = document.createElement("img");
   img.src = imgsrc;
   return img;
 }
+// 페이지 구분용 (임시)
+bgc.map((item, index) => {
+  dom.sections[index].style.backgroundColor = item;
+});
 
-// 첫번째 article
+// ! 첫번째 article
 //  lp-player 고정
 dom.articles[0].innerHTML = `
 ${imgTag(image[0].src)}
@@ -112,16 +115,24 @@ ${imgTag(image[1].src)}
 ${makeTag("div")}
 `;
 
-// contact 버튼 생성 및 새 페이지로 이동
-contact.map((item, index) => {
-  dom.articles[0].children[2].append(imgSrc(item.img));
-  const contacts = dom.articles[0].children[2].children;
-  contacts[index].addEventListener("click", () => {
-    window.open(item.src);
+// 첫번째 메인 페이지에 레코드판 돌리는 효과
+
+dom.articles[0].children[2].innerHTML = `
+  ${imgTag(image[3].src)}
+  ${imgTag(image[4].src)}
+  `;
+
+dom.articles[0].children[2].children[0].addEventListener("click", function () {
+  dom.articles[0].children[1].classList.add("play");
+});
+dom.articles[0].children[2].children[1].addEventListener("click", function () {
+  dom.articles[0].children[1].classList.remove("play");
+  window.scrollTo({
+    top: 0,
   });
 });
 
-// 두번째 article
+//  ! 두번째 article 시작
 
 // 첫번째 scection
 // 포트폴리오 메인 내용
@@ -148,10 +159,15 @@ firstSectionChidlren[0].innerHTML = `${imgTag(image[2].src)}`;
 firstSectionChidlren[1].append(makeTagContent("h1", "Developer JeongYeonJu"));
 console.log(ulList);
 firstSectionChidlren[1].append(makeTagContent("ul", ulList.join("")));
-firstSectionChidlren[2].innerHTML = `
-${imgTag(image[3].src)}
-${imgTag(image[4].src)}
-`;
+
+// contact 버튼 생성 및 새 페이지로 이동
+contact.map((item, index) => {
+  firstSectionChidlren[2].append(imgSrc(item.img));
+  const contacts = firstSectionChidlren[2].children;
+  contacts[index].addEventListener("click", () => {
+    window.open(item.src);
+  });
+});
 
 // 두번째 부터 마지막까지 상단 앨범과 재생바
 function subMainbox() {
@@ -221,7 +237,7 @@ const projectDict = [
     git_URL: "https://github.com/dlehdrb128/NongDam_Project",
     ppt_URL:
       "https://docs.google.com/presentation/d/1ESWnb4PfglA9sY83oKuCwUg_paIVlzEwiXopro77-A4/edit?usp=sharing",
-    video_URL: "",
+    video_URL: "https://www.youtube.com/watch?v=RJfUY6SItwo",
     name: "못난이 농산물 판매 서비스",
     period: "22.09.07 - 22.10.26 ( 5인 프로젝트 )",
     desc: "node.js로 서버를 구축 및 mySQL DB 연결해서 데이터를 저장 시키고, React로  화면에 출력하였다.로그인으로 권한 확인을 하여 사업자회원과 일반회원의 페이지 출력을 다르게 설정하여 회원에 맞는 기능을 구현시켰다.",
@@ -231,9 +247,9 @@ const projectDict = [
   },
   {
     img: [
-      "https://images2.imgbox.com/bb/3a/pZztdzIm_o.jpg",
-      "https://images2.imgbox.com/7b/3d/oXUZhMwS_o.jpg",
-      "https://images2.imgbox.com/b0/d0/cw2u0N8x_o.jpg",
+      "https://images2.imgbox.com/44/d1/poGT8Sc4_o.jpg",
+      "https://images2.imgbox.com/01/8d/l4GEHN6b_o.jpg",
+      "https://images2.imgbox.com/28/86/nvEQTqsr_o.jpg",
     ],
     git_URL: " https://github.com/polarisjyb/Project-A-",
     ppt_URL:
@@ -241,7 +257,7 @@ const projectDict = [
     video_URL:
       "https://drive.google.com/file/d/1ikI3nhkqNMAwaCuUiV1yM8RXi7UxYIod/view?usp=sharing",
     name: "주식 매도.매수 추천 서비스",
-    period: " 22.11.07- 22.12.02 ( 4인 프로젝트 )",
+    period: " 22.11.07 - 22.12.02 ( 4인 프로젝트 )",
     desc: "주어진 데이터를 기반으로 파이썬에서 maria DB 연동 후 React로 화면 구성 및 컴포넌트 구성을 하였고, 4가지의 알고리즘을 통해 각가의 매수와 매도를 추천해준 후 종합적으로 매수와 매도의  비율을 제공해주었다.",
     function:
       "각 종목별 정보 및 기간별 캔틀차트, 전략별 알고리즘을 통한 매수·매도추천 서비스",
@@ -249,16 +265,16 @@ const projectDict = [
   },
   {
     img: [
-      "https://images2.imgbox.com/bb/3a/pZztdzIm_o.jpg",
-      "https://images2.imgbox.com/7b/3d/oXUZhMwS_o.jpg",
-      "https://images2.imgbox.com/b0/d0/cw2u0N8x_o.jpg",
+      "https://images2.imgbox.com/f8/a4/28x0MPhI_o.jpg",
+      "https://images2.imgbox.com/13/58/g9Qc8r7Y_o.jpg",
+      "https://images2.imgbox.com/c2/21/LjSFhnsO_o.jpg",
     ],
     git_URL: "https://github.com/MAGEUNWON/ProjectB",
     ppt_URL:
       "https://docs.google.com/presentation/d/1VaBPeeXwe-Dwbqv0SOh-AAFMLvWgEcT248g7eLcv35g/edit?usp=sharing",
     video_URL: "https://youtu.be/ibJ0NYnnHGc",
     name: "대전 교통 안내 서비스 및 네비게이션 서비스",
-    period: "22.12.12-22.12.23 ( 5인 프로젝트 ) ",
+    period: "22.12.12 - 22.12.23 ( 5인 프로젝트 )",
     desc: " 다양한 API를 활용하여 데이터를 정보를 지도에 표시하고, 파이썬으로 서버 구축 및 DB를 가공하였고 React로 map API를 출력하였다. 주어진 노드 및 링크 데이터를 가공하여 클릭시, 소요시간 및 거리정보를 제공해주었다.",
     function:
       "CCTV 정보, 도로 돌발 상황 정보, 보호구역 정보, 주차장 정보, 지도 검색 기능, 길찾기 기능",
@@ -383,17 +399,6 @@ dom.sections[4].append(project(projectDict[1]));
 dom.sections[5].append(project(projectDict[2]));
 
 // click event
-
-// 첫번째 메인 페이지에 레코드판 돌리는 효과
-firstSectionChidlren[2].children[0].addEventListener("click", function () {
-  dom.articles[0].children[1].classList.add("play");
-});
-firstSectionChidlren[2].children[1].addEventListener("click", function () {
-  dom.articles[0].children[1].classList.remove("play");
-  window.scrollTo({
-    top: 0,
-  });
-});
 
 // * 스크롤 바
 window.onload = function () {
