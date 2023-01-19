@@ -6,14 +6,14 @@ $col-3: #f66b0e;
 $col-4: #f5e6ca;
 $col-5: #ffffff;
 
-@mixin display($column, $jus, $align) {
+@mixin display($column, $jus: flex-start, $align: stretch) {
   display: flex;
   flex-direction: $column;
   justify-content: $jus;
   align-items: $align;
 }
 
-@mixin size($width, $height) {
+@mixin size($width, $height: auto) {
   width: $width;
   height: $height;
 }
@@ -37,22 +37,18 @@ $col-5: #ffffff;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-family: "GmarketSansMedium";
   // 스트롤 바 숨기기
   // overflow: hidden;
 }
 
 #root {
-  width: 100vw;
-  height: auto;
+  @include size(100vw, auto);
+  @include display(row, flex-end);
   // 구름이미지
   background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-background_23-2148998534.jpg?w=1380&t=st=1674030461~exp=1674031061~hmac=e0629cb9921df2f7943aad3a1dfe45af2c83d3658f61bbc08553a6eea6d58fea");
-
-  // background-size: contain;
   background-size: cover;
-
   // background-color: #ed775d;
-  display: flex;
-  justify-content: flex-end;
   color: $col-1;
 }
 
@@ -67,40 +63,48 @@ h2 {
   font-family: "GmarketSansBold";
   font-size: 24px;
 }
+h4 {
+  font-size: 20px;
+}
 a {
   text-decoration: none;
   color: $col-1;
 }
 a:hover {
   color: $col-2;
+  font-family: "GmarketSansBold";
 }
 
+// ! 첫번째 article
 // 왼쪽 고정 lp-player
 .lp-player {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+  @include size(50%, 100vh);
+  @include display(column, center, center);
+  // lp-player
   & > img:nth-child(1) {
-    padding-top: 200px;
-    width: 600px;
+    @include size(600px);
+    padding-top: 300px;
     z-index: 1;
   }
+  // lp(record)
   & > img:nth-child(2) {
-    width: 420px;
+    @include size(420px);
     position: relative;
     bottom: 475px;
     right: 62px;
     transform-origin: 50% 50%;
   }
-
-  & > div {
+  // h1, p 태그 박스
+  & > div:nth-child(3) {
+    @include display(column, center, center);
     position: relative;
-    top: -200px;
-    display: flex;
-    align-items: center;
+    top: -350px;
+  }
+  // 재생, 스탑 버튼 박스
+  & > div:nth-child(4) {
+    @include display(row, flex-start, center);
+    position: relative;
+    top: -300px;
     & > img {
       margin: 5px;
       cursor: pointer;
@@ -108,6 +112,7 @@ a:hover {
   }
 }
 
+// lp 돌아가게 하는 애니메이션
 .play {
   animation: rotate_image 1s linear infinite;
 }
@@ -116,12 +121,45 @@ a:hover {
     transform: rotate(360deg);
   }
 }
+
+// 재생중 효과
+.h1-play {
+  & > div {
+    @include size(400px, 50px);
+    display: flex;
+    flex: 0 0 auto;
+    overflow: hidden;
+    transition: 0.3s;
+    white-space: nowrap;
+    & > p {
+      animation: textLoop 10s linear infinite;
+      padding-right: 1.4881vw;
+    }
+  }
+}
+@keyframes textLoop {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  50.01% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+// 각 seciton의 lp 앨범 및 재생,스탑 버튼
 .sub-Mainbox {
   padding-bottom: 30px;
+  // lp 앨범
   & > img:nth-child(1) {
-    width: 200px;
+    @include size(200px);
     margin-right: 10px;
   }
+  // 재생, 스탑버튼
   & > img:nth-child(2),
   img:nth-child(3) {
     cursor: pointer;
@@ -129,61 +167,72 @@ a:hover {
   }
 }
 
+// ! 두번째 article
 .content {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  font-family: "GmarketSansMedium";
+  @include size(50%);
+  @include display(column);
 }
 
+// article의 각 section
+// 각 트랙 소개 페이지
 section {
-  width: 100%;
-  height: 100vh;
+  @include size(100%, 100vh);
   padding: 50px;
 }
 
+// 첫번째 section
 #Main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background-color: bisque;
-  & > div:nth-child(1) {
-    & > img {
-      width: 500px;
+  @include display(column, space-between, center);
+  // lp 앨범
+  & > img:nth-child(1) {
+    width: 500px;
+  }
+  // h1 태그 + ul
+  & > div:nth-child(2) {
+    ul {
+      padding-top: 10px;
+      padding-left: 50px;
+      font-size: 24px;
+      list-style-type: none;
+      & > li {
+        cursor: pointer;
+      }
     }
   }
-  ul {
-    padding-top: 10px;
-    padding-left: 50px;
-    font-family: "GmarketSansBold";
-    font-size: 24px;
-    list-style-type: none;
-
-    & > li {
-      cursor: pointer;
-    }
-  }
+  // contact div
   & > div:nth-child(3) {
-    img:hover {
+    img {
+      margin: 5px;
       cursor: pointer;
     }
   }
 }
-
-#Skils {
+// 두번째 section
+section:nth-child(2) {
   & > div:nth-child(3) {
+    width: inherit;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 50px;
+  }
+}
+// 세번째 section
+#Skils {
+  // 기술 logo div
+  & > div:nth-child(3) {
+    @include display(row, center);
+    flex-wrap: wrap;
     margin-top: 30px;
     padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     img {
-      width: 110px;
+      @include size(110px);
       margin: 10px;
       object-fit: contain;
     }
   }
+  // 기술 img 아래 p 태그
   & > p {
     margin-top: 20px;
     font-size: 20px;
@@ -191,27 +240,26 @@ section {
   }
 }
 
+// 공통 project
 .project {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  // 이미지 슬라이더 박스
+  @include size(100%);
+  @include display(column);
+  // 프로젝트 이미지 div
   & > div:nth-child(1) {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include size(100%);
+    @include display(row, center, center);
+    // prev,next btn
     & > img {
       cursor: pointer;
       margin: 5px;
     }
+    // 사진 슬라이더 부분
     & > div:nth-child(2) {
-      width: 500px;
+      @include size(500px);
+      @include display(column, flex-start, center);
       border: 1px solid $col-1;
       background-color: $col-5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      // project 박스 부분
       & > p {
         width: inherit;
         text-align: center;
@@ -220,13 +268,12 @@ section {
       }
     }
   }
-  // url 이동 박스
+
+  // git, ppt, 동영상 logo div
   & > div:nth-child(2) {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    @include size(85%);
+    @include display(row, flex-end, center);
+    // logo img
     & > img {
       margin: 5px;
       cursor: pointer;
@@ -235,29 +282,24 @@ section {
 
   // 프로젝트 설명 박스
   & > div:nth-child(3) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include display(column, center, center);
     text-align: center;
     & > p {
       font-size: 14px;
     }
   }
 }
-
+// 이미지 슬라이더 박스
 .img-container {
-  width: inherit;
-  height: 250px;
+  @include size(inherit, 250px);
   position: relative;
   overflow: hidden;
   & > div {
+    @include size(100%, 100%);
     position: absolute;
     transition: all 0.25s ease-in-out;
-    width: 100%;
-    height: 100%;
     & > img {
-      width: 100%;
-      height: 100%;
+      @include size(100%, 100%);
       object-fit: contain;
     }
   }

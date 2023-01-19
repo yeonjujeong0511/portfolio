@@ -113,20 +113,43 @@ dom.articles[0].innerHTML = `
 ${imgTag(image[0].src)}
 ${imgTag(image[1].src)}
 ${makeTag("div")}
+${makeTag("div")}
 `;
 
+dom.articles[0].children[2].append(
+  makeTagContent("h1", "“ Developer JengYeonju ” ")
+);
+
+dom.articles[0].children[2].append(
+  makeTagContent("p", "music ON을 원하시면 Play 버튼을 눌러주세요")
+);
+const h1Tag = dom.articles[0].children[2].children[0];
+const pTag = dom.articles[0].children[2].children[1];
+
+dom.articles[0].children[3].innerHTML = `
+${imgTag(image[3].src)}
+${imgTag(image[4].src)}
+`;
+
+// ! bgm 넣기
+const bgm = new Audio("bgm.mp3");
+
 // 첫번째 메인 페이지에 레코드판 돌리는 효과
-
-dom.articles[0].children[2].innerHTML = `
-  ${imgTag(image[3].src)}
-  ${imgTag(image[4].src)}
-  `;
-
-dom.articles[0].children[2].children[0].addEventListener("click", function () {
+dom.articles[0].children[3].children[0].addEventListener("click", function () {
   dom.articles[0].children[1].classList.add("play");
+  h1Tag.innerHTML = "<div><p>'Developer JengYeonju'가 재생중입니다</p></div>";
+  h1Tag.classList.add("h1-play");
+  pTag.innerHTML = "music OFF를 원하시면 stop 버튼을 눌러주세요";
+  bgm.play();
+  bgm.loop = true;
 });
-dom.articles[0].children[2].children[1].addEventListener("click", function () {
+dom.articles[0].children[3].children[1].addEventListener("click", function () {
   dom.articles[0].children[1].classList.remove("play");
+  h1Tag.innerHTML = "“ Developer JengYeonju ” ";
+  h1Tag.classList.remove("h1-play");
+  pTag.innerHTML = "music ON을 원하시면 Play 버튼을 눌러주세요";
+  bgm.pause();
+  bgm.currentTime = 0;
   window.scrollTo({
     top: 0,
   });
@@ -138,7 +161,7 @@ dom.articles[0].children[2].children[1].addEventListener("click", function () {
 // 포트폴리오 메인 내용
 
 dom.sections[0].innerHTML = `
-${makeTag("div")}
+${imgTag(image[2].src)}
 ${makeTag("div")}
 ${makeTag("div")}
 `;
@@ -152,12 +175,11 @@ for (let i = 0; i < listName.length; i++) {
 const ulList = listName.map((item, index) => {
   return `<li><a href="#${newListName[index]}">${item}</a></li>`;
 });
-console.log(ulList);
 
 const firstSectionChidlren = dom.sections[0].children;
 firstSectionChidlren[0].innerHTML = `${imgTag(image[2].src)}`;
 firstSectionChidlren[1].append(makeTagContent("h1", "Developer JeongYeonJu"));
-console.log(ulList);
+
 firstSectionChidlren[1].append(makeTagContent("ul", ulList.join("")));
 
 // contact 버튼 생성 및 새 페이지로 이동
@@ -182,9 +204,19 @@ function subMainbox() {
   // 재생바 이벤트
   parentElem.children[1].addEventListener("click", function () {
     dom.articles[0].children[1].classList.add("play");
+    h1Tag.innerHTML = "<div><p>'Developer JengYeonju'가 재생중입니다</p></div>";
+    h1Tag.classList.add("h1-play");
+    pTag.innerHTML = "music OFF를 원하시면 stop 버튼을 눌러주세요";
+    bgm.play();
+    bgm.loop = true;
   });
   parentElem.children[2].addEventListener("click", function () {
     dom.articles[0].children[1].classList.remove("play");
+    h1Tag.innerHTML = "“ Developer JengYeonju ” ";
+    h1Tag.classList.remove("h1-play");
+    pTag.innerHTML = "music ON을 원하시면 Play 버튼을 눌러주세요";
+    bgm.pause();
+    bgm.currentTime = 0;
     window.scrollTo({
       top: 0,
     });
@@ -201,7 +233,13 @@ for (let i = 0; i < listName.length; i++) {
 // 두번째 scection
 // 포트폴리오 about me
 
-dom.sections[1].append(makeTagContent("div", "<h4></h4><p></p>"));
+dom.sections[1].append(makeTagContent("div", "<h4></h4><p></p><p></p>"));
+
+dom.sections[1].children[2].children[0].innerHTML = "I'm JeongYeonJu";
+dom.sections[1].children[2].children[1].innerHTML =
+  "안녕하세요!<br> front-end 개발자 정연주입니다.";
+dom.sections[1].children[2].children[2].innerHTML =
+  "-교육과정<br>22.07 - 23.01<br>그린컴퓨터아트학원<br>기업에서 요구하는 프레임워크를 활용한 풀스택 개발자(NODE,ECMAscript) 양성 과정 수료";
 
 // 세번째 section
 // 포트폴리오 skils
@@ -302,7 +340,6 @@ function project(projectDict) {
   projectImg.children[1].append(elemClassName("div", "img-container"));
   const imgContainer = projectImg.children[1].children[0];
 
-  console.log(projectDict.img);
   function imgbox(imgsrc) {
     const imgBox = document.createElement("div");
     const img = document.createElement("img");
@@ -314,9 +351,9 @@ function project(projectDict) {
     imgContainer.append(imgbox(projectDict.img[i]));
   }
   const slides = imgContainer.children;
-  console.log(slides);
+
   const slideImg = document.querySelectorAll(".img-container div");
-  console.log(slideImg);
+
   let counter = 0;
   const prevBtn = projectImg.children[0];
   const nextBtn = projectImg.children[2];
@@ -360,7 +397,7 @@ function project(projectDict) {
     // });
   }
   prevBtn.style.display = "none";
-  console.log(projectDict.img.length);
+
   projectImg.children[1].append(makeTagContent("p", "PROJECT"));
 
   logo.map((item) => {
@@ -375,7 +412,7 @@ function project(projectDict) {
   clickEvent(logoBtn[0], projectDict.git_URL);
   clickEvent(logoBtn[1], projectDict.ppt_URL);
   clickEvent(logoBtn[2], projectDict.video_URL);
-  console.log(div.children[2]);
+
   const desc = div.children[2];
   desc.append(makeTagContent("h3", projectDict.name));
   desc.append(makeTagContent("p", projectDict.period));
