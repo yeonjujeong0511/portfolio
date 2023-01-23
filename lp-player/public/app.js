@@ -132,7 +132,7 @@ ${imgTag(image[4].src)}
 `;
 
 // ! bgm 넣기
-const bgm = new Audio("bgm.mp3");
+const bgm = new Audio("/etc/bgm.mp3");
 
 // 첫번째 메인 페이지에 레코드판 돌리는 효과
 dom.articles[0].children[3].children[0].addEventListener("click", function () {
