@@ -1,0 +1,359 @@
+@charset "UTF-8";
+/* 반응형 화면 크기 */
+@font-face {
+  font-family: "GmarketSansLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GmarketSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "GmarketSansMedium";
+}
+
+#root {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: stretch;
+  background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-background_23-2148998534.jpg?w=1380&t=st=1674030461~exp=1674031061~hmac=e0629cb9921df2f7943aad3a1dfe45af2c83d3658f61bbc08553a6eea6d58fea");
+  background-size: cover;
+  color: #112b3c;
+}
+
+h1 {
+  font-family: "GmarketSansBold";
+  font-size: 32px;
+  font-style: italic;
+}
+
+h2 {
+  font-style: italic;
+  font-family: "GmarketSansBold";
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #112b3c;
+}
+
+a:hover {
+  color: #205375;
+  font-family: "GmarketSansBold";
+}
+
+.lp-player {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.lp-player > img:nth-child(1) {
+  width: 600px;
+  height: auto;
+  padding-top: 300px;
+  z-index: 1;
+}
+.lp-player > img:nth-child(2) {
+  width: 420px;
+  height: auto;
+  position: relative;
+  bottom: 475px;
+  right: 62px;
+  transform-origin: 50% 50%;
+}
+.lp-player > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -350px;
+}
+.lp-player > div:nth-child(4) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  top: -300px;
+}
+.lp-player > div:nth-child(4) > img {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.play {
+  -webkit-animation: rotate_image 1s linear infinite;
+          animation: rotate_image 1s linear infinite;
+}
+
+@-webkit-keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.h1-play > div {
+  width: 400px;
+  height: 50px;
+  display: flex;
+  flex: 0 0 auto;
+  overflow: hidden;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+.h1-play > div > p {
+  -webkit-animation: textLoop 10s linear infinite;
+          animation: textLoop 10s linear infinite;
+  padding-right: 1.4881vw;
+}
+
+@-webkit-keyframes textLoop {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  50.01% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes textLoop {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  50.01% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.sub-Mainbox {
+  padding-bottom: 30px;
+}
+.sub-Mainbox > img:nth-child(1) {
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
+}
+.sub-Mainbox > img:nth-child(2),
+.sub-Mainbox img:nth-child(3) {
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.content {
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  padding: 50px;
+}
+
+#Main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#Main > img:nth-child(1) {
+  width: 500px;
+}
+#Main > div:nth-child(2) ul {
+  padding-top: 10px;
+  padding-left: 50px;
+  font-size: 24px;
+  list-style-type: none;
+}
+#Main > div:nth-child(2) ul > li {
+  cursor: pointer;
+}
+#Main > div:nth-child(3) img {
+  margin: 5px;
+  cursor: pointer;
+}
+
+section:nth-child(2) > div:nth-child(3) {
+  width: inherit;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+
+#Skils > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 10px;
+}
+#Skils > div:nth-child(3) img {
+  width: 110px;
+  height: auto;
+  margin: 10px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+#Skils > p {
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.project {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.project > div:nth-child(1) {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.project > div:nth-child(1) > img {
+  cursor: pointer;
+  margin: 5px;
+}
+.project > div:nth-child(1) > div:nth-child(2) {
+  width: 500px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #112b3c;
+  background-color: #ffffff;
+}
+.project > div:nth-child(1) > div:nth-child(2) > p {
+  width: inherit;
+  text-align: center;
+  background-color: #112b3c;
+  color: #ffffff;
+}
+.project > div:nth-child(2) {
+  width: 85%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.project > div:nth-child(2) > img {
+  margin: 5px;
+  cursor: pointer;
+}
+.project > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.project > div:nth-child(3) > p {
+  font-size: 14px;
+}
+
+.img-container {
+  width: inherit;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+.img-container > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all 0.25s ease-in-out;
+}
+.img-container > div > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@media (min-width: 1024px) {
+  .lp-player {
+    width: 50%;
+    position: fixed;
+    left: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #root {
+    flex-direction: column;
+  }
+  .lp-player {
+    width: 100%;
+  }
+  .content {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  #root {
+    flex-direction: column;
+  }
+  .lp-player {
+    width: 100%;
+  }
+  .content {
+    width: 100%;
+  }
+}/*# sourceMappingURL=styles.css.map */
