@@ -9,5 +9,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log("서버연결");
+  console.log("8080 서버 연결");
 });
