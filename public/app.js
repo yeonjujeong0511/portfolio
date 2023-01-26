@@ -59,12 +59,12 @@ const contact = [
     img: "https://images2.imgbox.com/f9/f4/7nzd6Hv0_o.png",
   },
   {
-    src: "yeonjujeong0511@gmail.com",
-    img: "https://images2.imgbox.com/94/81/kyjGCqLm_o.png",
-  },
-  {
     src: "https://velog.io/@yeonju0511",
     img: "https://images2.imgbox.com/43/0a/f6idVWBV_o.png",
+  },
+  {
+    src: "yeonjujeong0511@gmail.com",
+    img: "https://images2.imgbox.com/94/81/kyjGCqLm_o.png",
   },
 ];
 
@@ -185,11 +185,21 @@ firstSectionChidlren[1].append(makeTagContent("ul", ulList.join("")));
 // contact 버튼 생성 및 새 페이지로 이동
 contact.map((item, index) => {
   firstSectionChidlren[2].append(imgSrc(item.img));
-  const contacts = firstSectionChidlren[2].children;
-  contacts[index].addEventListener("click", () => {
-    window.open(item.src);
-  });
+  // const contacts = firstSectionChidlren[2].children;
+  // contacts[index].addEventListener("click", () => {
+  //   window.open(item.src);
+  // });
 });
+const contacts = firstSectionChidlren[2].children;
+for (let i = 0; i < contact.length - 1; i++) {
+  contacts[i].addEventListener("click", () => {
+    window.open(contact[i].src);
+  });
+}
+
+// 스크롤 이벤트 필요함
+console.log(contacts[2].children);
+contacts[2].children.innerHTML = `<a href=#Contact></a>`;
 
 // 두번째 부터 마지막까지 상단 앨범과 재생바
 function subMainbox() {
@@ -481,3 +491,47 @@ window.onload = function () {
     });
   });
 };
+
+// emailJs
+
+const emailContact = document.getElementById("Contact");
+
+emailContact.innerHTML = `
+<div>
+  <h2>Contact me</h2>
+  <p>관심을 가져주셔서 감사합니다.</br>이메일을 남겨주시면, 회신하겠습니다.</p>
+  <form id="contact-form">
+    <input type="text" class="input" id="userName" placeholder="성함을 입력해주세요" required />
+    <input type="text" class="input" id="email" placeholder="회신 메일주소를 입력해주세요" required />
+    <input type="text" class="input" id="phone" placeholder="연락처를 입력해주세요 (생략 가능)" />
+    <textarea id="message" class="input-textarea" rows="5" placeholder="내용을 입력해주세요" required ></textarea>
+    <input type="submit" id="email-btn" value="전송" />
+  </form>
+</div>
+`;
+
+const sendEmail = () => {
+  console.log("클릭");
+  emailjs.init("vYq2siqh8aAyQ4Ct1");
+  let templateParams = {
+    name: document.getElementById("userName").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
+  console.log(templateParams);
+  emailjs.send("service_yeonju", "template_yeonju", templateParams).then(
+    function (response) {
+      console.log("Success!", response.status, response.text);
+    },
+    function (error) {
+      console.log("Failed...", error);
+    }
+  );
+};
+
+const submit = document.getElementById("contact-form");
+
+submit.addEventListener("submit", () => {
+  sendEmail;
+});
