@@ -28,7 +28,6 @@ $col-5: #ffffff;
   }
 }
 
-@include font-face("Light");
 @include font-face("Medium");
 @include font-face("Bold");
 
@@ -38,8 +37,10 @@ $col-5: #ffffff;
   box-sizing: border-box;
   scroll-behavior: smooth;
   font-family: "GmarketSansMedium";
-  // 스트롤 바 숨기기
-  // overflow: hidden;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 #root {
@@ -73,43 +74,6 @@ a {
 a:hover {
   color: $col-2;
   font-family: "GmarketSansBold";
-}
-
-// ! 첫번째 article
-// 왼쪽 고정 lp-player
-.lp-player {
-  @include size(50%, 100vh);
-  @include display(column, center, center);
-  // lp-player
-  & > img:nth-child(1) {
-    @include size(600px);
-    padding-top: 300px;
-    z-index: 1;
-  }
-  // lp(record)
-  & > img:nth-child(2) {
-    @include size(420px);
-    position: relative;
-    bottom: 475px;
-    right: 62px;
-    transform-origin: 50% 50%;
-  }
-  // h1, p 태그 박스
-  & > div:nth-child(3) {
-    @include display(column, center, center);
-    position: relative;
-    top: -350px;
-  }
-  // 재생, 스탑 버튼 박스
-  & > div:nth-child(4) {
-    @include display(row, flex-start, center);
-    position: relative;
-    top: -300px;
-    & > img {
-      margin: 5px;
-      cursor: pointer;
-    }
-  }
 }
 
 // lp 돌아가게 하는 애니메이션
@@ -345,12 +309,47 @@ section:nth-child(2) {
   padding: 10px;
   margin: 10px;
 }
+.lp-player {
+  @include display(column, center, center);
+  & > img:nth-child(1) {
+    @include size(600px);
+  }
+  & > img:nth-child(2) {
+    @include size(420px);
+    bottom: 475px;
+    right: 62px;
+    position: relative;
+    transform-origin: 50% 50%;
+  }
+  & > div:nth-child(3) {
+    @include display(column, center, center);
+  }
+  & > div:nth-child(4) {
+    @include display(row, flex-start, center);
 
+    & > img {
+      margin: 5px;
+      cursor: pointer;
+    }
+  }
+}
 @include desktop {
   .lp-player {
-    width: 50%;
+    @include size(50%, 100vh);
     position: fixed;
     left: 0;
+    & > img:nth-child(1) {
+      padding-top: 300px;
+      z-index: 1;
+    }
+    & > div:nth-child(3) {
+      position: relative;
+      top: -350px;
+    }
+    & > div:nth-child(4) {
+      position: relative;
+      top: -300px;
+    }
   }
 }
 
@@ -359,7 +358,19 @@ section:nth-child(2) {
     flex-direction: column;
   }
   .lp-player {
-    width: 100%;
+    @include size(100%, 100vh);
+    padding-top: 300px;
+    & > img:nth-child(1) {
+      z-index: 1;
+    }
+    & > div:nth-child(3) {
+      position: relative;
+      top: -350px;
+    }
+    & > div:nth-child(4) {
+      position: relative;
+      top: -300px;
+    }
   }
   .content {
     width: 100%;
@@ -370,10 +381,138 @@ section:nth-child(2) {
   #root {
     flex-direction: column;
   }
+  h1 {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+  h4 {
+    font-size: 10px;
+  }
+
   .lp-player {
-    width: 100%;
+    // ! 첫번째 article
+    // 왼쪽 고정 lp-player
+    @include size(100%, 100vh);
+    // lp-player
+    & > img:nth-child(1) {
+      @include size(300px);
+    }
+    // lp(record)
+    & > img:nth-child(2) {
+      @include size(200px);
+      bottom: 237px;
+      right: 30px;
+    }
+    // 재생, 스탑 버튼 박스
+    & > div:nth-child(4) {
+      margin-top: 50px;
+    }
   }
   .content {
     width: 100%;
+  }
+  #Main {
+    & > img:nth-child(1) {
+      width: 250px;
+    }
+    & > div:nth-child(2) {
+      ul {
+        font-size: 20px;
+      }
+    }
+  }
+  .sub-Mainbox {
+    // lp 앨범
+    & > img:nth-child(1) {
+      @include size(100px);
+      margin-right: 5px;
+    }
+    // 재생, 스탑버튼
+    & > img:nth-child(2),
+    img:nth-child(3) {
+      @include size(20px);
+      cursor: pointer;
+      margin-left: 3px;
+    }
+  }
+  // 두번째 section
+  section:nth-child(2) {
+    & > div:nth-child(3) {
+      font-size: 12px;
+    }
+  }
+  #Skils {
+    & > div:nth-child(3) {
+      img {
+        @include size(50px);
+      }
+    }
+    & > p {
+      font-size: 14px;
+    }
+  }
+  // 공통 project
+  .project {
+    @include size(100%, 200px);
+    // 프로젝트 이미지 div
+    & > div:nth-child(1) {
+      @include size(90%);
+
+      // // prev,next btn
+      // & > img {
+      //   cursor: pointer;
+      //   margin: 5px;
+      // }
+      // 사진 슬라이더 부분
+      & > div:nth-child(2) {
+        @include size(inherit, 130px);
+        @include display(column, flex-start, center);
+        border: 1px solid $col-1;
+        background-color: $col-5;
+        // project 박스 부분
+        & > p {
+          width: 100%;
+          height: 12px;
+          font-size: 8px;
+        }
+      }
+    }
+
+    // git, ppt, 동영상 logo div
+    & > div:nth-child(2) {
+      & > img {
+        width: 15px;
+      }
+    }
+
+    // 프로젝트 설명 박스
+    & > div:nth-child(3) {
+      @include display(column, center, center);
+      text-align: center;
+      & > h3 {
+        font-size: 12px;
+      }
+      p {
+        font-size: 8px;
+      }
+    }
+  }
+  // 이미지 슬라이더 박스
+  .img-container {
+    @include size(inherit, 250px);
+    position: relative;
+    overflow: hidden;
+    & > div {
+      @include size(100%, 100%);
+      position: absolute;
+      transition: all 0.25s ease-in-out;
+      & > img {
+        @include size(100%, 100%);
+        object-fit: contain;
+      }
+    }
   }
 }

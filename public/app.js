@@ -1,4 +1,5 @@
 const dom = {
+  root: document.querySelector("root"),
   articles: document.querySelectorAll("article"),
   sections: document.querySelectorAll("section"),
 };
@@ -37,12 +38,11 @@ const skils = [
   "https://images2.imgbox.com/8c/d9/jkyUbUyI_o.png",
   "https://images2.imgbox.com/29/59/lx6OJMqT_o.png",
   "https://images2.imgbox.com/c4/a0/7k0iOWg2_o.png",
-  "https://images2.imgbox.com/11/af/fgdRrkAu_o.png",
   "https://images2.imgbox.com/a8/28/6JGtCsBI_o.png",
   "https://images2.imgbox.com/35/48/M7dtSi5W_o.png",
 ];
 
-const bgc = ["#eee1", "#eee2", "#eee3", "#eee4", "#eee5", "#eee6", "#eee7"];
+// const bgc = ["#eee1", "#eee2", "#eee3", "#eee4", "#eee5", "#eee6", "#eee7"];
 
 const listName = [
   "1. About Me",
@@ -103,9 +103,9 @@ function imgSrc(imgsrc) {
   return img;
 }
 // 페이지 구분용 (임시)
-bgc.map((item, index) => {
-  dom.sections[index].style.backgroundColor = item;
-});
+// bgc.map((item, index) => {
+//   dom.sections[index].style.backgroundColor = item;
+// });
 
 // ! 첫번째 article
 //  lp-player 고정
@@ -117,11 +117,11 @@ ${makeTag("div")}
 `;
 
 dom.articles[0].children[2].append(
-  makeTagContent("h1", "“ Developer JengYeonju ” ")
+  makeTagContent("h1", "“ Developer JeongYeonju ”")
 );
 
 dom.articles[0].children[2].append(
-  makeTagContent("p", "music ON을 원하시면 Play 버튼을 눌러주세요")
+  makeTagContent("p", "music ON을 원하시면 play 버튼을 눌러주세요")
 );
 const h1Tag = dom.articles[0].children[2].children[0];
 const pTag = dom.articles[0].children[2].children[1];
@@ -137,7 +137,7 @@ const bgm = new Audio("/etc/bgm.mp3");
 // 첫번째 메인 페이지에 레코드판 돌리는 효과
 dom.articles[0].children[3].children[0].addEventListener("click", function () {
   dom.articles[0].children[1].classList.add("play");
-  h1Tag.innerHTML = "<div><p>'Developer JengYeonju'가 재생중입니다</p></div>";
+  h1Tag.innerHTML = "<div><p>'Developer JeongYeonju'가 재생중입니다. 'Developer JeongYeonju'가 재생중입니다.</p></div>";
   h1Tag.classList.add("h1-play");
   pTag.innerHTML = "music OFF를 원하시면 stop 버튼을 눌러주세요";
   bgm.play();
@@ -197,8 +197,13 @@ for (let i = 0; i < contact.length - 1; i++) {
   });
 }
 
+contacts[2].addEventListener("click", () => {
+  window.scrollTo({
+    top: document.body.scrollHeight, // <- 페이지 총 Height
+  });
+})
+
 // 스크롤 이벤트 필요함
-console.log(contacts[2].children);
 contacts[2].children.innerHTML = `<a href=#Contact></a>`;
 
 // 두번째 부터 마지막까지 상단 앨범과 재생바
@@ -449,47 +454,50 @@ dom.sections[5].append(project(projectDict[2]));
 
 // * 스크롤 바
 window.onload = function () {
-  const sectionBoxCount = dom.sections.length;
-  dom.sections.forEach(function (item, index) {
-    item.addEventListener("mousewheel", function (event) {
-      event.preventDefault();
-      let delta = 0;
+  //기준 설정
+  var windowWidth = window.matchMedia("(min-width: 1024px)");
+  if (windowWidth.matches) {
+    const sectionBoxCount = dom.sections.length;
+    dom.sections.forEach(function (item, index) {
+      item.addEventListener("wheel", function (event) {
+        event.preventDefault();
+        let delta = 0;
+        if (!event) event = window.event;
+        if (event.wheelDelta) {
+          delta = event.wheelDelta / 120;
+          if (window.opera) delta = -delta;
+        } else if (event.detail) delta = -event.detail / 3;
 
-      if (!event) event = window.event;
-      if (event.wheelDelta) {
-        delta = event.wheelDelta / 120;
-        if (window.opera) delta = -delta;
-      } else if (event.detail) delta = -event.detail / 3;
+        let moveTop = window.scrollY;
+        let elmSelector = dom.sections[index];
 
-      let moveTop = window.scrollY;
-      let elmSelector = dom.sections[index];
-
-      // wheel down : move to next section
-      if (delta < 0) {
-        if (elmSelector !== dom.sections.Count - 1) {
-          try {
-            moveTop =
-              window.pageYOffset +
-              elmSelector.nextElementSibling.getBoundingClientRect().top;
-          } catch (e) {}
+        // wheel down : move to next section
+        if (delta < 0) {
+          if (elmSelector !== dom.sections.Count - 1) {
+            try {
+              moveTop =
+                window.pageYOffset +
+                elmSelector.nextElementSibling.getBoundingClientRect().top;
+            } catch (e) { }
+          }
         }
-      }
 
-      // wheel up : move to previous section
-      else {
-        if (elmSelector !== 0) {
-          try {
-            moveTop =
-              window.pageYOffset +
-              elmSelector.previousElementSibling.getBoundingClientRect().top;
-          } catch (e) {}
+        // wheel up : move to previous section
+        else {
+          if (elmSelector !== 0) {
+            try {
+              moveTop =
+                window.pageYOffset +
+                elmSelector.previousElementSibling.getBoundingClientRect().top;
+            } catch (e) { }
+          }
         }
-      }
 
-      const body = document.querySelector("html");
-      window.scrollTo({ top: moveTop });
+        const body = document.querySelector("html");
+        window.scrollTo({ top: moveTop });
+      });
     });
-  });
+  }
 };
 
 // emailJs
