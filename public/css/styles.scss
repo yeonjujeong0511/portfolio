@@ -2,9 +2,7 @@
 
 $col-1: #112b3c;
 $col-2: #205375;
-$col-3: #f66b0e;
-$col-4: #f5e6ca;
-$col-5: #ffffff;
+$col-3: #ffffff;
 
 @mixin display($column, $jus: flex-start, $align: stretch) {
   display: flex;
@@ -49,7 +47,6 @@ $col-5: #ffffff;
   // 구름이미지
   background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-background_23-2148998534.jpg?w=1380&t=st=1674030461~exp=1674031061~hmac=e0629cb9921df2f7943aad3a1dfe45af2c83d3658f61bbc08553a6eea6d58fea");
   background-size: cover;
-  // background-color: #ed775d;
   color: $col-1;
 }
 
@@ -222,13 +219,13 @@ section:nth-child(2) {
       @include size(500px);
       @include display(column, flex-start, center);
       border: 1px solid $col-1;
-      background-color: $col-5;
+      background-color: $col-3;
       // project 박스 부분
       & > p {
         width: inherit;
         text-align: center;
         background-color: $col-1;
-        color: $col-5;
+        color: $col-3;
       }
     }
   }
@@ -296,6 +293,16 @@ section:nth-child(2) {
   width: 50px;
   // height: 30px;
   padding: 5px;
+  background-color: $col-3;
+  border: 1px solid $col-3;
+  border-radius: 5px;
+  color: $col-1;
+  cursor: pointer;
+  &:hover {
+    background-color: $col-1;
+    border: 1px solid $col-1;
+    color: $col-3;
+  }
 }
 .input {
   width: 300px;
@@ -313,10 +320,11 @@ section:nth-child(2) {
   @include display(column, center, center);
   & > img:nth-child(1) {
     @include size(600px);
+    z-index: 1;
   }
   & > img:nth-child(2) {
     @include size(420px);
-    bottom: 475px;
+    bottom: 477px;
     right: 62px;
     position: relative;
     transform-origin: 50% 50%;
@@ -399,12 +407,13 @@ section:nth-child(2) {
     // lp-player
     & > img:nth-child(1) {
       @include size(300px);
+      z-index: 1;
     }
     // lp(record)
     & > img:nth-child(2) {
       @include size(200px);
-      bottom: 237px;
-      right: 30px;
+      bottom: 236px;
+      right: 29px;
     }
     // 재생, 스탑 버튼 박스
     & > div:nth-child(4) {
@@ -471,7 +480,7 @@ section:nth-child(2) {
         @include size(inherit, 130px);
         @include display(column, flex-start, center);
         border: 1px solid $col-1;
-        background-color: $col-5;
+        background-color: $col-3;
         // project 박스 부분
         & > p {
           width: 100%;

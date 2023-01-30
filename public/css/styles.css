@@ -312,6 +312,16 @@ section:nth-child(2) > div:nth-child(3) {
 #email-btn {
   width: 50px;
   padding: 5px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  color: #112b3c;
+  cursor: pointer;
+}
+#email-btn:hover {
+  background-color: #112b3c;
+  border: 1px solid #112b3c;
+  color: #ffffff;
 }
 
 .input {
@@ -337,11 +347,12 @@ section:nth-child(2) > div:nth-child(3) {
 .lp-player > img:nth-child(1) {
   width: 600px;
   height: auto;
+  z-index: 1;
 }
 .lp-player > img:nth-child(2) {
   width: 420px;
   height: auto;
-  bottom: 475px;
+  bottom: 477px;
   right: 62px;
   position: relative;
   transform-origin: 50% 50%;
@@ -427,12 +438,13 @@ section:nth-child(2) > div:nth-child(3) {
   .lp-player > img:nth-child(1) {
     width: 300px;
     height: auto;
+    z-index: 1;
   }
   .lp-player > img:nth-child(2) {
     width: 200px;
     height: auto;
-    bottom: 237px;
-    right: 30px;
+    bottom: 236px;
+    right: 29px;
   }
   .lp-player > div:nth-child(4) {
     margin-top: 50px;
