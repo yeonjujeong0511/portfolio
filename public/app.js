@@ -252,7 +252,7 @@ dom.sections[1].append(makeTagContent("div", "<h4></h4><p></p><p></p>"));
 
 dom.sections[1].children[2].children[0].innerHTML = "I'm JeongYeonJu";
 dom.sections[1].children[2].children[1].innerHTML =
-  "안녕하세요!<br> front-end 개발자 정연주입니다.";
+  "안녕하세요!<br> front-end 개발자 정연주입니다.<br>계속해서 공부하고 연구하여 성장하는 개발자가 되고싶습니다.";
 dom.sections[1].children[2].children[2].innerHTML =
   "- 교육과정<br>22.07 - 23.01<br>그린컴퓨터아트학원<br>기업에서 요구하는 프레임워크를 활용한 풀스택 개발자(NODE,ECMAscript) 양성 과정 수료";
 
@@ -297,7 +297,7 @@ const projectDict = [
     function:
       "로그인, 상품 검색, 상품 상세페이지, 상품 리뷰, 장바구니, 레시피 검색, 레시피 등록, 5일장 정보, 스토어 정보, 사업자 회원 스토어 및 상품등록",
     etc: `
-    <p>맡은 부분 : 사업자회원 페이지 frontend, backend 작업</p>
+  < p > 맡은 부분: 사업자회원 페이지 frontend, backend 작업</ >
     <p>아쉬운점 : 스토어와 상품등록 기능 외에 다른 기능을 더 구현하지 못한 점</p>
     <p>발전사항 : 입력한 정보를 DB에서 저장하고 불러오는 기능을 배움, React를 처음 사용하여  SPA에 대해 이해 할 수있는 시간이였음</p>`,
   },
@@ -318,7 +318,7 @@ const projectDict = [
     function:
       "각 종목별 정보 및 기간별 캔틀차트, 전략별 알고리즘을 통한 매수·매도추천 서비스",
     etc: `
-    <p>맡은 부분 : 검색 기능 구현을 하지 못 해서 차트에 있는 종목만을 클릭으로 각 종목의 정보 출력한 것</p>
+  < p > 맡은 부분: 검색 기능 구현을 하지 못 해서 차트에 있는 종목만을 클릭으로 각 종목의 정보 출력한 것</ >
     <p>아쉬운점 : 스토어와 상품등록 기능 외에 다른 기능을 더 구현하지 못한 점</p>
     <p>발전사항 : 파이썬을 통한 데이터베이스 및 서버 연동에 대해 배울 수 있었고, 알고리즘을 통해 각 종목의 결과를 나타낼 수 있었음</p>`
   },
@@ -338,7 +338,7 @@ const projectDict = [
     function:
       "CCTV 정보, 도로 돌발 상황 정보, 보호구역 정보, 주차장 정보, 지도 검색 기능, 길찾기 기능",
     etc: `
-    <p>맡은 부분 : 실시간 돌발정보와 주차장 정보 마커 표시</p>
+  < p > 맡은 부분: 실시간 돌발정보와 주차장 정보 마커 표시</ >
     <p>아쉬운점 :  지도 api에 다양한 기능을 구현했어야 해서 전역 상태관리의 필요성을 느꼈고 DB 테이블의 컬럼명을 공통으로 설정하지 못한 부분</p>
     <p>발전사항 : 다양한 API를 활용할 수 있었고, 파이썬을 이용해 API를 DB에 저장함을 배웠음</p>`
   },
@@ -349,14 +349,14 @@ function project(projectDict) {
   div.innerHTML = `
     ${makeTag("div")}
     ${makeTag("div")}
-    ${makeTag("div")} 
-  `;
+    ${makeTag("div")}
+`;
   div.className = "project";
   div.children[0].innerHTML = `
   ${makeTag("img")}
   ${makeTag("div")}
   ${makeTag("img")}
-  `;
+`;
   const projectImg = div.children[0];
   projectImg.children[0].src = btn[0];
   projectImg.children[2].src = btn[1];
@@ -383,10 +383,10 @@ function project(projectDict) {
   const nextBtn = projectImg.children[2];
 
   for (let i = 0; i < slides.length; i++) {
-    slides[i].style.left = `${i * 100}%`;
+    slides[i].style.left = `${i * 100}% `;
   }
   // slides.forEach(function (slide, index) {
-  //   slide.style.left = `${index * 100}%`;
+  //   slide.style.left = `${ index * 100 }% `;
   //   // console.log(slide);
   // });
   nextBtn.addEventListener("click", function () {
@@ -413,11 +413,11 @@ function project(projectDict) {
 
     // 함수 실행될때마다, translateX의 값으로 위치 조정
     for (let i = 0; i < slides.length; i++) {
-      slides[i].style.transform = `translateX(-${counter * 100}%)`;
+      slides[i].style.transform = `translateX(-${counter * 100} %)`;
     }
     // slides.forEach(function (slide) {
     //   console.log(slide);
-    //   slide.style.transform = `translateX(-${counter * 100}%)`;
+    //   slide.style.transform = `translateX(-${ counter * 100} %)`;
     // });
   }
   prevBtn.style.display = "none";
@@ -514,9 +514,9 @@ window.onload = function () {
 const emailContact = document.getElementById("Contact");
 
 emailContact.innerHTML = `
-<div>
+  <div>
   <h2>Contact me</h2>
-  <p>관심을 가져주셔서 감사합니다.</br>이메일을 남겨주시면, 회신하겠습니다.</p>
+  <p>관심을 가져주셔서 감사합니다.</br>이메일을 남겨주시면, 회신하겠습니다.</p >
   <form id="contact-form">
     <input type="text" class="input" id="userName" placeholder="성함을 입력해주세요" required />
     <input type="text" class="input" id="email" placeholder="회신 메일주소를 입력해주세요" required />
@@ -524,8 +524,8 @@ emailContact.innerHTML = `
     <textarea id="message" class="input-textarea" rows="5" placeholder="내용을 입력해주세요" required ></textarea>
     <input type="submit" id="email-btn" value="전송" />
   </form>
-</div>
-`;
+</div >
+  `;
 
 const sendEmail = () => {
   console.log("클릭");
