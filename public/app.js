@@ -121,7 +121,7 @@ dom.articles[0].children[2].append(
 );
 
 dom.articles[0].children[2].append(
-  makeTagContent("p", "music ON을 원하시면 play 버튼을 눌러주세요")
+  makeTagContent("p", "music ON을 원하시면 Play 버튼을 눌러주세요")
 );
 const h1Tag = dom.articles[0].children[2].children[0];
 const pTag = dom.articles[0].children[2].children[1];
@@ -132,20 +132,20 @@ ${imgTag(image[4].src)}
 `;
 
 // ! bgm 넣기
-const bgm = new Audio("/etc/bgm.mp3");
+const bgm = new Audio("etc/bgm.mp3");
 
 // 첫번째 메인 페이지에 레코드판 돌리는 효과
 dom.articles[0].children[3].children[0].addEventListener("click", function () {
   dom.articles[0].children[1].classList.add("play");
   h1Tag.innerHTML = "<div><p>'Developer JeongYeonju'가 재생중입니다. 'Developer JeongYeonju'가 재생중입니다.</p></div>";
   h1Tag.classList.add("h1-play");
-  pTag.innerHTML = "music OFF를 원하시면 stop 버튼을 눌러주세요";
+  pTag.innerHTML = "music OFF를 원하시면 Stop 버튼을 눌러주세요";
   bgm.play();
   bgm.loop = true;
 });
 dom.articles[0].children[3].children[1].addEventListener("click", function () {
   dom.articles[0].children[1].classList.remove("play");
-  h1Tag.innerHTML = "“ Developer JengYeonju ” ";
+  h1Tag.innerHTML = "“ Developer JeongYeonju ” ";
   h1Tag.classList.remove("h1-play");
   pTag.innerHTML = "music ON을 원하시면 Play 버튼을 눌러주세요";
   bgm.pause();
@@ -219,15 +219,15 @@ function subMainbox() {
   // 재생바 이벤트
   parentElem.children[1].addEventListener("click", function () {
     dom.articles[0].children[1].classList.add("play");
-    h1Tag.innerHTML = "<div><p>'Developer JengYeonju'가 재생중입니다</p></div>";
+    h1Tag.innerHTML = "<div><p>'Developer JeongYeonju'가 재생중입니다</p></div>";
     h1Tag.classList.add("h1-play");
-    pTag.innerHTML = "music OFF를 원하시면 stop 버튼을 눌러주세요";
+    pTag.innerHTML = "music OFF를 원하시면 Stop 버튼을 눌러주세요";
     bgm.play();
     bgm.loop = true;
   });
   parentElem.children[2].addEventListener("click", function () {
     dom.articles[0].children[1].classList.remove("play");
-    h1Tag.innerHTML = "“ Developer JengYeonju ” ";
+    h1Tag.innerHTML = "“ Developer JeongYeonju ” ";
     h1Tag.classList.remove("h1-play");
     pTag.innerHTML = "music ON을 원하시면 Play 버튼을 눌러주세요";
     bgm.pause();
