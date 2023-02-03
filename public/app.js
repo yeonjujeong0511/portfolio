@@ -358,8 +358,9 @@ function project(projectDict) {
   ${makeTag("img")}
 `;
   const projectImg = div.children[0];
-  projectImg.children[0].src = btn[0];
-  projectImg.children[2].src = btn[1];
+  // projectImg.children[0].src = btn[0];
+  // projectImg.children[2].src = btn[1];
+  // 프로젝트 슬라이더 기능 잠시 중단
 
   projectImg.children[1].append(elemClassName("div", "img-container"));
   const imgContainer = projectImg.children[1].children[0];
