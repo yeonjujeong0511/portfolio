@@ -137,7 +137,8 @@ const bgm = new Audio("etc/bgm.mp3");
 // 첫번째 메인 페이지에 레코드판 돌리는 효과
 dom.articles[0].children[3].children[0].addEventListener("click", function () {
   dom.articles[0].children[1].classList.add("play");
-  h1Tag.innerHTML = "<div><p>'Developer JeongYeonju'가 재생중입니다. 'Developer JeongYeonju'가 재생중입니다.</p></div>";
+  h1Tag.innerHTML =
+    "<div><p>'Developer JeongYeonju'가 재생중입니다. 'Developer JeongYeonju'가 재생중입니다.</p></div>";
   h1Tag.classList.add("h1-play");
   pTag.innerHTML = "music OFF를 원하시면 Stop 버튼을 눌러주세요";
   bgm.play();
@@ -201,7 +202,7 @@ contacts[2].addEventListener("click", () => {
   window.scrollTo({
     top: document.body.scrollHeight, // <- 페이지 총 Height
   });
-})
+});
 
 // 스크롤 이벤트 필요함
 contacts[2].children.innerHTML = `<a href=#Contact></a>`;
@@ -219,7 +220,8 @@ function subMainbox() {
   // 재생바 이벤트
   parentElem.children[1].addEventListener("click", function () {
     dom.articles[0].children[1].classList.add("play");
-    h1Tag.innerHTML = "<div><p>'Developer JeongYeonju'가 재생중입니다</p></div>";
+    h1Tag.innerHTML =
+      "<div><p>'Developer JeongYeonju'가 재생중입니다</p></div>";
     h1Tag.classList.add("h1-play");
     pTag.innerHTML = "music OFF를 원하시면 Stop 버튼을 눌러주세요";
     bgm.play();
@@ -318,9 +320,9 @@ const projectDict = [
     function:
       "각 종목별 정보 및 기간별 캔틀차트, 전략별 알고리즘을 통한 매수·매도추천 서비스",
     etc: `
-    <p>맡은부분 : 검색 기능 구현을 하지 못 해서 차트에 있는 종목만을 클릭으로 각 종목의 정보 출력한 것</p >
-    <p>아쉬운점 : 스토어와 상품등록 기능 외에 다른 기능을 더 구현하지 못한 점</p>
-    <p>발전사항 : 파이썬을 통한 데이터베이스 및 서버 연동에 대해 배울 수 있었고, 알고리즘을 통해 각 종목의 결과를 나타낼 수 있었음</p>`
+    <p>맡은부분 : 컴포넌트 구성 후 알고리즘으로 매수, 매도 추천 기능</p >
+    <p>아쉬운점 : 검색 기능 구현을 하지 못 해서 차트에 있는 종목의 정보만 알 수 있는 점</p>
+    <p>발전사항 : 파이썬을 통한 데이터베이스 및 서버 연동에 대해 배울 수 있었고, 알고리즘을 통해 각 종목의 결과를 나타낼 수 있었음</p>`,
   },
   {
     img: [
@@ -340,7 +342,7 @@ const projectDict = [
     etc: `
     <p>맡은부분 : 실시간 돌발정보와 주차장 정보 마커 표시</p >
     <p>아쉬운점 :  지도 api에 다양한 기능을 구현했어야 해서 전역 상태관리의 필요성을 느꼈고 DB 테이블의 컬럼명을 공통으로 설정하지 못한 부분</p>
-    <p>발전사항 : 다양한 API를 활용할 수 있었고, 파이썬을 이용해 API를 DB에 저장함을 배웠음</p>`
+    <p>발전사항 : 다양한 API를 활용할 수 있었고, 파이썬을 이용해 API를 DB에 저장함을 배웠음</p>`,
   },
 ];
 
@@ -488,7 +490,7 @@ window.onload = function () {
               moveTop =
                 window.pageYOffset +
                 elmSelector.nextElementSibling.getBoundingClientRect().top;
-            } catch (e) { }
+            } catch (e) {}
           }
         }
 
@@ -499,7 +501,7 @@ window.onload = function () {
               moveTop =
                 window.pageYOffset +
                 elmSelector.previousElementSibling.getBoundingClientRect().top;
-            } catch (e) { }
+            } catch (e) {}
           }
         }
 
